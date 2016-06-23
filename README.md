@@ -13,14 +13,12 @@ Version History
 
 Current Version : 1.2
 
-[Version Info](https://github.com/appvirality/appvirality-sdk-android/wiki/Android-SDK-Version-History)
+[Version Info](https://github.com/farazAV/AppVirality-Android-SDK-2.0/wiki/Android-SDK-Version-History)
 
 Integrating Appvirality into your App
 -------------------------------------
 
-<H4>Personalized-Referrals GrowthHack</H4>
-
-[SDK Integration Steps for Personalized-Referrals GrowthHack](https://github.com/appvirality/appvirality-sdk-android/wiki/Personalized-In-App-Referrals)
+[SDK Integration Steps](https://github.com/appvirality/appvirality-sdk-android/wiki/Personalized-In-App-Referrals)
 
 
 
