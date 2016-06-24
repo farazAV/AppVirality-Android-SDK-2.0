@@ -39,9 +39,9 @@ dependencies {
 
 ![Alt text](https://github.com/appvirality/appvirality-sdk-android/blob/master/images/App-key-obtaining.jpg?raw=true)
 
-<H4>STEP 2 - Configure the <b>AndroidManifest.xml</b> file of your project as follows</H4> 
+<H4>STEP 3 - Configure the <b>AndroidManifest.xml</b> file of your project as follows</H4> 
 
-1. Add a <i>meta-data</i> element to the <i>application</i> element, with <i>name</i> as <b>com.appvirality.sdk.AppViralityApiKey</b> and <i>value</i> as your AppVirality App key:
+1. Add a <i>meta-data</i> element to the <i>application</i> element, with <i>name</i> as <b>com.appvirality.sdk.AppViralityApiKey</b> and <i>value</i> as your AppVirality App key
     
 ```java
 <application android:label="@string/app_name" ...>
@@ -55,10 +55,16 @@ dependencies {
 
 NOTE: Don't forget to replace the key "02e1r5e99b94f56t69f42a32a00d2e7ff" with your App Key.
 
+2. Add a <i>meta-data</i> element to the <i>application</i> element, with <i>name</i> as <b>com.appvirality.sdk.TestMode</b> and <i>value</i> as <b>true</b> or <b>false</b>, depending on whether you want to run the app in <b>Test Mode</b> or <b>Live Mode</b> respectively.
 
+```java
+<application android:label="@string/app_name" ...>
+    ...
+    <meta-data
+        android:name="com.appvirality.sdk.TestMode"
+        android:value="true" />
+    ...
+</application>
+```
 
-
-
-
-
-
+NOTE: Set the value as <i>false</i> before publishing the app to the play store.
