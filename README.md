@@ -21,7 +21,7 @@ Integrating Appvirality into your App
 Throughout the document, invitation sender will be called as "Referrer" and receiver will be called as "Friend".
 
 
-<H4>STEP 1 - Getting Started:</H4>
+<H4>STEP 1 - Adding dependency</H4>
 
 This applies for Gradle based projects. Add the following dependency to your <b>build.gradle</b> file: 
 
@@ -39,9 +39,11 @@ dependencies {
 
 ![Alt text](https://github.com/appvirality/appvirality-sdk-android/blob/master/images/App-key-obtaining.jpg?raw=true)
 
-2) Open the <b>AndroidManifest.xml</b> file of your project, add a <i>meta-data</i> element to the <i>application</i> element, with <i>name</i> as <b>com.appvirality.sdk.AppViralityApiKey</b> and <i>value</i> as your AppVirality App key:
+2) Configure the <b>AndroidManifest.xml</b> file of your project as follows 
 
-```java
+    * Add a <i>meta-data</i> element to the <i>application</i> element, with <i>name</i> as <b>com.appvirality.sdk.AppViralityApiKey</b> and <i>value</i> as your AppVirality App key:
+    
+    ```java
 <application android:label="@string/app_name" ...>
     ...
     <meta-data
