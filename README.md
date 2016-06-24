@@ -18,7 +18,7 @@ Current Version : 1.2.1
 Integrating Appvirality into your App
 -------------------------------------
 
-[SDK Integration Steps](https://github.com/appvirality/appvirality-sdk-android/wiki/Personalized-In-App-Referrals)
+[SDK Integration Steps](https://github.com/farazAV/AppVirality-Android-SDK-2.0/wiki/SDK-Integration-Steps)
 
 
 
