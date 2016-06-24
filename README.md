@@ -18,9 +18,6 @@ Current Version : 1.2.1
 Integrating Appvirality into your App
 -------------------------------------
 
-AppVirality SDK Integration Steps
-=======================
-
 <H3>Introduction:</H3>
 AppVirality is a Plug and Play Growth Hacking Toolkit for Mobile Apps.
 
