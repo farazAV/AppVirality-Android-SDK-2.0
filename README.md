@@ -43,7 +43,8 @@ dependencies {
 
 1. Add the following <i>meta-data</i> elements to the <i>application</i> element, with <i>name</i> as <b>com.appvirality.sdk.AppViralityApiKey</b> and <i>value</i> as your AppVirality App key
 
-(i) Replace <i>value</i> with your AppVirality App key
+* Replace <i>value</i> with your AppVirality App key
+* dsfs
 
 ```java
 <application android:label="@string/app_name" ...>
