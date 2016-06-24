@@ -20,6 +20,7 @@ Integrating Appvirality into your App
 
 Throughout the document, invitation sender will be called as "Referrer" and receiver will be called as "Friend".
 
+
 <H4>STEP 1 - Getting Started:</H4>
 
 This applies for Gradle based projects. Add the following dependency to your <b>build.gradle</b> file: 
