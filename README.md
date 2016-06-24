@@ -35,20 +35,20 @@ dependencies {
 
 <H4>STEP 2 - Set up your AppVirality Keys</H4>
 
-1) Once you've registered with AppVirality.com and add a new app, you will be given an App key.
+1. Once you've registered with AppVirality.com and add a new app, you will be given an App key.
 
 ![Alt text](https://github.com/appvirality/appvirality-sdk-android/blob/master/images/App-key-obtaining.jpg?raw=true)
 
-2) Configure the <b>AndroidManifest.xml</b> file of your project as follows 
+2. Configure the <b>AndroidManifest.xml</b> file of your project as follows 
 
-* Add a <i>meta-data</i> element to the <i>application</i> element, with <i>name</i> as <b>com.appvirality.sdk.AppViralityApiKey</b> and <i>value</i> as your AppVirality App key:
+(i) Add a <i>meta-data</i> element to the <i>application</i> element, with <i>name</i> as <b>com.appvirality.sdk.AppViralityApiKey</b> and <i>value</i> as your AppVirality App key:
     
 ```java
 <application android:label="@string/app_name" ...>
     ...
     <meta-data
-            android:name="com.appvirality.sdk.AppViralityApiKey"
-            android:value="02e1r5e99b94f56t69f42a32a00d2e7ff" />
+        android:name="com.appvirality.sdk.AppViralityApiKey"
+        android:value="02e1r5e99b94f56t69f42a32a00d2e7ff" />
     ...
 </application>
 ```
