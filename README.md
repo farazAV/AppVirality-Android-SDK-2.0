@@ -18,13 +18,6 @@ Current Version : 1.2.1
 Integrating Appvirality into your App
 -------------------------------------
 
-<H3>Introduction:</H3>
-AppVirality is a Plug and Play Growth Hacking Toolkit for Mobile Apps.
-
-It helps app developers to identify and implement the right growth hack, within seconds & without any coding. We provide easy to integrate SDK's for various platforms that include Android & [iOS](https://github.com/appvirality/AppVirality-iOS-SDK).
-
-AppVirality Android SDK supports from Android (API level 8) and higher.
-
 Throughout the document, invitation sender will be called as "Referrer" and receiver will be called as "Friend".
 
 <H4>STEP 1 - Getting Started:</H4>
