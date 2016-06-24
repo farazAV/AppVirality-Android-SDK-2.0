@@ -68,3 +68,5 @@ NOTE: Don't forget to replace the key "02e1r5e99b94f56t69f42a32a00d2e7ff" with y
 ```
 
 NOTE: Set the value as <i>false</i> before publishing the app to the play store.
+
+3. Add
