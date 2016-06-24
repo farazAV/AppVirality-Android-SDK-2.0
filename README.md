@@ -55,7 +55,7 @@ dependencies {
 
 NOTE: Don't forget to replace the key "02e1r5e99b94f56t69f42a32a00d2e7ff" with your App Key.
 
-2. Add a <i>meta-data</i> element to the <i>application</i> element, with <i>name</i> as <b>com.appvirality.sdk.TestMode</b> and <i>value</i> as <b>true</b> or <b>false</b>, depending on whether you want to run the app in <b>Test Mode</b> or <b>Live Mode</b> respectively.
+2. Add a <i>meta-data</i> element to the <i>application</i> element, with <i>name</i> as <b>com.appvirality.sdk.TestMode</b> and <i>value</i> as <i>true</i> or <i>false</i>, depending on whether you want to run the app in <b>Test Mode</b> or <b>Live Mode</b> respectively.
 
 ```java
 <application android:label="@string/app_name" ...>
