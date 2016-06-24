@@ -41,9 +41,9 @@ dependencies {
 
 2) Configure the <b>AndroidManifest.xml</b> file of your project as follows 
 
-    * Add a <i>meta-data</i> element to the <i>application</i> element, with <i>name</i> as <b>com.appvirality.sdk.AppViralityApiKey</b> and <i>value</i> as your AppVirality App key:
+* Add a <i>meta-data</i> element to the <i>application</i> element, with <i>name</i> as <b>com.appvirality.sdk.AppViralityApiKey</b> and <i>value</i> as your AppVirality App key:
     
-    ```java
+```java
 <application android:label="@string/app_name" ...>
     ...
     <meta-data
