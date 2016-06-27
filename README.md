@@ -36,7 +36,7 @@ dependencies {
 
 <H4>STEP 2 - Set up your AppVirality Keys</H4>
 
-1. Once you've registered with AppVirality.com and add a new app, you will be given an App key.
+1) Once you've registered with AppVirality.com and add a new app, you will be given an App key.
 
 ![Alt text](https://github.com/appvirality/appvirality-sdk-android/blob/master/images/App-key-obtaining.jpg?raw=true)
 
