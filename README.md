@@ -161,7 +161,7 @@ userDetails.setExistingUser(false);
 > <b>setMobileNo</b> —  User's mobile number.
 > <b>setCity</b> —  User's city.
 > <b>setState</b> —  User's state.
-> <b>setCountry</b> —  User's country.
+> <b>setCountry</b> —  User's country
 > <b>setExistingUser</b> — Set this as True, if you identify the user as existing user(this is useful if you don't want to reward existing users).
 
 * Invoke <i>init(<b>UserDetails</b> userDetails, <b>AppViralitySessionInitListener</b> callback)</i> method of the <b>AppVirality</b> class, passing the <i>UserDetail</i> object created in the previous step, to start the AppVirality's initialization calls 
