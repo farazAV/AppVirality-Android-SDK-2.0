@@ -43,7 +43,7 @@ dependencies {
 
 <H4>STEP 3 - Configure the <b>AndroidManifest.xml</b> file of your project as follows</H4> 
 
-1. Add the following <i>meta-data</i> elements to the <i>application</i> element.
+1) Add the following <i>meta-data</i> elements to the <i>application</i> element.
 
 * Replace "02e1r5e99b94f56t69f42a32a00d2e7ff" with your AppVirality App key
 
@@ -81,7 +81,7 @@ dependencies {
 </application>
 ```
 
-2. Add the following permissions within the <code>&lt;manifest...&gt;</code>
+2) Add the following permissions within the <code>&lt;manifest...&gt;</code>
 
 ```java
 <manifest..>
