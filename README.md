@@ -177,6 +177,32 @@ appVirality.init(userDetails, new AppVirality.AppViralitySessionInitListener() {
 });
 ```  
 
-
-
 <H4>STEP 5 - Launching Growth Hack</H4>
+
+In-App referral growth hack can be launched in 3 different ways. You can use any/all of these 3 options to launch the growth hack.
+
+#### Option 1 - Launch from custom button i.e from "Invite Friends" or "Refer & Earn" button on your App menu
+
+###### Show Custom Button(i.e. "Refer & Earn" button) only on Campaign availability
+
+You can use the following method if you want to show some label or message bar, only if there is any campaign available for the user.<i>CampaignDetailsReadyListener</i> will get called irrespective of campaign availability but if campaign is not available the <i>onCampaignReady</i> method shall receive empty campaign list. This is mainly useful when you want to have some control over the "Invite" or "Share" button visibility.
+
+Use below code block to get the campaign details configured on AppVirality dashboard.
+
+```java
+appVirality.getCampaigns(Constants.GrowthHackType.All, new AppVirality.CampaignDetailsReadyListener() {
+        @Override
+        public void onCampaignDetailsReady(ArrayList<CampaignDetail> campaignDetails, boolean refreshImages, String errorMsg) {
+                CampaignDetail womCampaignDetail = getCampaignDetail(Constants.GrowthHackType.Word_of_Mouth, campaignDetails);
+                if (refreshImages)
+                	refreshImages(womCampaignDetail);
+                if (campaignDetails.size() > 0 && womCampaignDetail != null) {
+                	// Campaigns available, display Refer & Earn button or launch growth hack screen
+                } else {
+                        // Campaigns not available, hide Refer & Earn button or display some message to the user
+                }
+        }
+});
+```
+
+<b>NOTE:</b> You must check for <i>refreshImages</i> value and download the images for the campaign if its true, whenever you use the <i>CampaignDetailsReadyListener</i> callback because this value will be provided only once whenever campaign data will change. So in order to have latest campaign images you must check <i>refreshImages</i> value each time you use this callback.
