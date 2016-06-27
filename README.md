@@ -122,3 +122,11 @@ If you already have an <b>INSTALL_REFERRER</b> receiver, use following code bloc
 
 <b>NOTE:</b> If you have multiple <b>INSTALL_REFERRER</b> receivers in your App, please go through the documentation [here](https://github.com/farazAV/AppVirality-Android-SDK-2.0/wiki/Using-Multiple-Install-Referrer-Receivers).
 
+
+<H4>STEP 4 - Initialising the AppVirality SDK</H4>
+
+1) Create the <b>AppVirality</b> class singleton in the <b>onCreate</b> method of your app's launcher activity. It is very important to do this in the launcher activity so that the SDK will queue up all the API calls for retrying, which might have got failed in the past. Use the following code for the same
+
+<code>
+AppVirality appVirality = AppVirality.getInstance(SplashActivity.this);
+</code>
