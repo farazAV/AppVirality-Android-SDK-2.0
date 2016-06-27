@@ -164,4 +164,4 @@ j) <b>setState</b> —  User's state
 k) <b>setCountry</b> —  User's country  
 l) <b>setExistingUser</b> — Set this as True, if you identify the user as existing user(this is useful if you don't want to reward existing users)
 
-* Invoke <i>init(<b>UserDetails</b> userDetails, <b>AppViralitySessionInitListener</b> callback)</i> method of the <b>AppVirality</b> class, passing the <i>UserDetail</i> object created in the previous step, to start the AppVirality's initialization calls 
+* Invoke <b>init(UserDetails userDetails, AppViralitySessionInitListener callback)</b> method of the <b>AppVirality</b> class, passing the <i>UserDetail</i> object created in the previous step and a <i>AppViralitySessionInitListener</i> instance, to start the AppVirality's initialization calls 
