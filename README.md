@@ -123,7 +123,7 @@ if (extras != null && extras.containsKey("referrer")) {
 <b>NOTE:</b> If you have multiple <b>INSTALL_REFERRER</b> receivers in your App, please go through the documentation [here](https://github.com/farazAV/AppVirality-Android-SDK-2.0/wiki/Using-Multiple-Install-Referrer-Receivers).
 
 
-<H4>STEP 4 - Initialising the AppVirality SDK</H4>
+<H4>STEP 4 - Initializing the AppVirality SDK</H4>
 
 1) Create the <b>AppVirality</b> class singleton in the <b>onCreate</b> method of your app's launcher activity. It is very important to do this in the launcher activity so that the SDK will queue up all the API calls for retrying, which might have got failed in the past. Use the following code for the same
 
@@ -133,7 +133,7 @@ AppVirality appVirality = AppVirality.getInstance(SplashActivity.this);
 
 2) Initializing the SDK
 
-* Create a <b>UserDetails</b> class object and set the various user details to be sent to AppVirality
+* Create a <b>UserDetails</b> class object and set the various user details to recognize the user same as your backend system. Also, it is required to personalize the referral messages and welcome screen, which will be shown to new users upon app installation. (Friends shall be able to see the referrer's name and profile picture). We will also pass these user details through web-hooks to notify you on successful referral or conversion(install,signup or transaction,etc.)
 
 ```java
 UserDetails userDetails = new UserDetails();
@@ -143,13 +143,25 @@ userDetails.setPushRegId("PushRegistrationId");
 userDetails.setUserEmail("Email");
 userDetails.setExtraInfo("ExtraInfo");
 userDetails.setUserName("Name);
+userDetails.setProfileImage("UserImage");
 userDetails.setMobileNo("MobileNo");
 userDetails.setCity("City");
 userDetails.setState("State");
 userDetails.setCountry("Country");
-userDetails.setExistingUserByUser(false);
+userDetails.setExistingUser(false);
 ```
 
-	a)
+- <b>setReferralCode</b> —  User's Referral Code.
+- <b>setAppUserId</b> —  ID of the user in your App(helps to identify users on dashboard as you do in your app).
+- <b>setPushRegId</b> —  Unique id assigned to the device by your Push Notification Service. Providing this helps AppVirality in sending Push Notifications to Users.
+- <b>setUserEmail</b> —  User's email address.
+- <b>setExtraInfo</b> —  Comma separated extra info. For example, various email addresses separated by comma.
+- <b>setUserName</b> — First Name of the user, required to personalize the referral messages.
+- <b>setProfileImage</b> —  User profile picture URL, required to personalize the referral messages.
+- <b>setMobileNo</b> —  User's mobile number.
+- <b>setCity</b> —  User's city.
+- <b>setState</b> —  User's state.
+- <b>setCountry</b> —  User's country.
+- <b>setExistingUser</b> — Set this as True, if you identify the user as existing user(this is useful if you don't want to reward existing users).
 
-* Invoke <i>init(UserDetails userDetails, AppViralitySessionInitListener callback)</i> method of the <b>AppVirality</b> class, passing the <i>UserDetail</i> object created in the previous step, to start the AppVirality's initialization calls 
+* Invoke <i>init(<b>UserDetails</b> userDetails, <b>AppViralitySessionInitListener</b> callback)</i> method of the <b>AppVirality</b> class, passing the <i>UserDetail</i> object created in the previous step, to start the AppVirality's initialization calls 
