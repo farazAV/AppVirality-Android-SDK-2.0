@@ -81,4 +81,21 @@ dependencies {
 </application>
 ```
 
-2.
+2. Add the following permissions within the <code>&lt;manifest...&gt;</code>
+
+```java
+<manifest..>
+   <uses-sdk android:minSdkVersion="8" android:targetSdkVersion="19" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />  
+    <!-- Optional permissions. GET_ACCOUNTS is used to pre-populate customer's email in form fields. -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <!-- Optional permissions. WRITE_EXTERNAL_STORAGE is used to improve the performance by storing campaign images. -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <application..>
+
+  </application>
+
+</manifest>
+```
