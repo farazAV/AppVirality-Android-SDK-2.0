@@ -113,10 +113,10 @@ Add the following code block if you don't already have an <b>INSTALL_REFERRER</b
 If you already have an <b>INSTALL_REFERRER</b> receiver, use following code block in the onReceive method of your broadcast receiver
 
 ```java
-	if (extras != null && extras.containsKey("referrer")) {
-        String referrer = intent.getStringExtra("referrer");
-        AppVirality.setReferrerKey(context, referrer);
-    }
+if (extras != null && extras.containsKey("referrer")) {
+    	String referrer = intent.getStringExtra("referrer");
+	AppVirality.setReferrerKey(context, referrer);
+}
 ```
 (or)
 
@@ -130,3 +130,26 @@ If you already have an <b>INSTALL_REFERRER</b> receiver, use following code bloc
 <code>
 AppVirality appVirality = AppVirality.getInstance(SplashActivity.this);
 </code>
+
+2) Initializing the SDK
+
+* Create a <b>UserDetails</b> class object and set the various user details to be sent to AppVirality
+
+```java
+UserDetails userDetails = new UserDetails();
+userDetails.setReferralCode("ReferralCode");
+userDetails.setAppUserId("UserId");
+userDetails.setPushRegId("PushRegistrationId");
+userDetails.setUserEmail("Email");
+userDetails.setExtraInfo("ExtraInfo");
+userDetails.setUserName("Name);
+userDetails.setMobileNo("MobileNo");
+userDetails.setCity("City");
+userDetails.setState("State");
+userDetails.setCountry("Country");
+userDetails.setExistingUserByUser(false);
+```
+
+	a)
+
+* Invoke <i>init(UserDetails userDetails, AppViralitySessionInitListener callback)</i> method of the <b>AppVirality</b> class, passing the <i>UserDetail</i> object created in the previous step, to start the AppVirality's initialization calls 
