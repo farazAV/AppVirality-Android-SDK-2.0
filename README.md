@@ -151,8 +151,8 @@ userDetails.setCountry("Country");
 userDetails.setExistingUser(false);
 ```
 
-a) <b>setReferralCode</b> —  User's Referral Code.
-b) <b>setAppUserId</b> —  ID of the user in your App(helps to identify users on dashboard as you do in your app).
+i) <b>setReferralCode</b> —  User's Referral Code.
+ii) <b>setAppUserId</b> —  ID of the user in your App(helps to identify users on dashboard as you do in your app).
 c) <b>setPushRegId</b> —  Unique id assigned to the device by your Push Notification Service. Providing this helps AppVirality in sending Push Notifications to Users.
 d) <b>setUserEmail</b> —  User's email address.
 e) <b>setExtraInfo</b> —  Comma separated extra info. For example, various email addresses separated by comma.
