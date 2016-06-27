@@ -175,7 +175,7 @@ appVirality.init(userDetails, new AppVirality.AppViralitySessionInitListener() {
                         Log.i("AppVirality: ", "userDetails " + responseData.toString());
 	}
 });
-```
+```  
 
 
 
