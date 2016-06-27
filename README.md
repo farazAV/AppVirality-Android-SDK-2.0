@@ -44,7 +44,6 @@ dependencies {
 <H4>STEP 3 - Configure the <b>AndroidManifest.xml</b> file of your project as follows</H4> 
 
 1. Add the following <i>meta-data</i> elements to the <i>application</i> element
-2. 
 
 * Replace "02e1r5e99b94f56t69f42a32a00d2e7ff" with your AppVirality App key
 
@@ -81,3 +80,6 @@ dependencies {
     ...
 </application>
 ```
+
+2. 
+
