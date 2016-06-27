@@ -164,4 +164,15 @@ j) <b>setState</b> —  User's state
 k) <b>setCountry</b> —  User's country  
 l) <b>setExistingUser</b> — Set this as True, if you identify the user as existing user(this is useful if you don't want to reward existing users)
 
-* Invoke <b>init(UserDetails userDetails, AppViralitySessionInitListener callback)</b> method of the <b>AppVirality</b> class, passing the <i>UserDetail</i> object created in the previous step and an <i>AppViralitySessionInitListener</i> instance, to start the AppVirality's initialization calls. Use this method preferably in your splash activity or main activity
+* Invoke <b>init(UserDetails userDetails, AppViralitySessionInitListener callback)</b> method of the <b>AppVirality</b> class to start the AppVirality's initialization API calls, passing the <i>UserDetail</i> object created in the previous step and an <i>AppViralitySessionInitListener</i> instance. Use this method preferably in your splash activity or main activity, so that your campaigns will be ready in the background by the time your app gets loaded. This ensures smooth user experience. Use the following code to initialize the sdk
+
+```java
+appVirality.init(userDetails, new AppVirality.AppViralitySessionInitListener() {
+        @Override
+        public void onInitFinished(boolean isInitialized, JSONObject responseData, String errorMessage) {
+                Log.i("AppVirality: ", "Is Initialized " + isInitialized);
+                if (responseData != null)
+                        Log.i("AppVirality: ", "userDetails " + responseData.toString());
+	}
+});
+```
