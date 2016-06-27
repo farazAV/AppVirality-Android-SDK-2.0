@@ -120,5 +120,5 @@ If you already have an <b>INSTALL_REFERRER</b> receiver, use following code bloc
 ```
 (or)
 
-<b>NOTE:</b> If you have multiple <b>INSTALL_REFERRER</b> receivers in your App, please go through the documentation [here](https://github.com/appvirality/appvirality-sdk-android/wiki/Using-Multiple-Android-Install-Referrers).
+<b>NOTE:</b> If you have multiple <b>INSTALL_REFERRER</b> receivers in your App, please go through the documentation [here](https://github.com/farazAV/AppVirality-Android-SDK-2.0/wiki/Using-Multiple-Install-Referrer-Receivers).
 
