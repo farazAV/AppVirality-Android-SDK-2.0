@@ -151,17 +151,17 @@ userDetails.setCountry("Country");
 userDetails.setExistingUser(false);
 ```
 
-	* <b>setReferralCode</b> —  User's Referral Code.
-	* <b>setAppUserId</b> —  ID of the user in your App(helps to identify users on dashboard as you do in your app).
-c) <b>setPushRegId</b> —  Unique id assigned to the device by your Push Notification Service. Providing this helps AppVirality in sending Push Notifications to Users.
-d) <b>setUserEmail</b> —  User's email address.
-e) <b>setExtraInfo</b> —  Comma separated extra info. For example, various email addresses separated by comma.
-f) <b>setUserName</b> — First Name of the user, required to personalize the referral messages.
-g) <b>setProfileImage</b> —  User profile picture URL, required to personalize the referral messages.
-h) <b>setMobileNo</b> —  User's mobile number.
-i) <b>setCity</b> —  User's city.
-j) <b>setState</b> —  User's state.
-k) <b>setCountry</b> —  User's country.
-l) <b>setExistingUser</b> — Set this as True, if you identify the user as existing user(this is useful if you don't want to reward existing users).
+	> <b>setReferralCode</b> —  User's Referral Code.
+	> <b>setAppUserId</b> —  ID of the user in your App(helps to identify users on dashboard as you do in your app).
+	> <b>setPushRegId</b> —  Unique id assigned to the device by your Push Notification Service. Providing this helps AppVirality in sending Push Notifications to Users.
+	> <b>setUserEmail</b> —  User's email address.
+	> <b>setExtraInfo</b> —  Comma separated extra info. For example, various email addresses separated by comma.
+	> <b>setUserName</b> — First Name of the user, required to personalize the referral messages.
+	> <b>setProfileImage</b> —  User profile picture URL, required to personalize the referral messages.
+	> <b>setMobileNo</b> —  User's mobile number.
+	> <b>setCity</b> —  User's city.
+	> <b>setState</b> —  User's state.
+	> <b>setCountry</b> —  User's country.
+	> <b>setExistingUser</b> — Set this as True, if you identify the user as existing user(this is useful if you don't want to reward existing users).
 
 * Invoke <i>init(<b>UserDetails</b> userDetails, <b>AppViralitySessionInitListener</b> callback)</i> method of the <b>AppVirality</b> class, passing the <i>UserDetail</i> object created in the previous step, to start the AppVirality's initialization calls 
