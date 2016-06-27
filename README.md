@@ -95,9 +95,9 @@ Once you've registered with AppVirality.com and add a new app, you will be given
 
 3) Add Install Referrer Receiver
 
-AppVirality Uses Google Install Referrer for attribution as a fallback, In addition to Device finger printing.
+AppVirality Uses Google Install Referrer for attribution as a fallback, in addition to device finger printing.
 
-Add the following code block if you don't already have an <b>INSTALL_REFERRER</b> receiver in your manifest file <i>Application</i> Tag.
+Add the following code block if you don't already have an <b>INSTALL_REFERRER</b> receiver in your manifest file <i>Application</i> Tag
 
 ```java
 <receiver
@@ -110,7 +110,7 @@ Add the following code block if you don't already have an <b>INSTALL_REFERRER</b
 ```
 (or)
 
-If you already have an <b>INSTALL_REFERRER</b> receiver, use following code block in your onReceive method:
+If you already have an <b>INSTALL_REFERRER</b> receiver, use following code block in the onReceive method of your broadcast receiver
 
 ```java
 	if (extras != null && extras.containsKey("referrer")) {
