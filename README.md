@@ -264,10 +264,10 @@ Tip: Identify top influencer's and make most of their network.
 
 <H5>Install Event: </H5>
 
-Please add the following code to send a <b>Install</b> conversion event when a user installs the app.
+Please add the following code to send a Install conversion event when a user installs the app
 
 ```java
-saveConversionEvent("Install", null, null, campaignId, Constants.GrowthHackType.Word_of_Mouth, new AppVirality.ConversionEventListener() {
+saveConversionEvent("install", null, null, campaignId, growthHackType, new AppVirality.ConversionEventListener() {
         @Override
         public void onResponse(boolean isSuccess, String message, String errorMsg) {
         	Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
@@ -275,3 +275,49 @@ saveConversionEvent("Install", null, null, campaignId, Constants.GrowthHackType.
 });
 ```
 
+<H5>SignUp Event: </H5>
+
+Please add the following code block after successful Signup i.e. in your Singup button click event
+
+```java
+saveConversionEvent("signup", null, null, campaignId, growthHackType, new AppVirality.ConversionEventListener() {
+        @Override
+        public void onResponse(boolean isSuccess, String message, String errorMsg) {
+        	Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
+        }
+});
+```
+
+<H5>Transaction Event: </H5>
+
+Please add the following code block after successful transaction
+
+```java
+saveConversionEvent("transaction", transactionValue, transactionUnit, campaignId, growthHackType, new AppVirality.ConversionEventListener() {
+        @Override
+        public void onResponse(boolean isSuccess, String message, String errorMsg) {
+        	Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
+        }
+});
+```
+
+<H5>Custom Event: </H5>
+
+Please add the following code block after successful completion of your Custom Event
+
+```java
+saveConversionEvent("transaction", transactionValue, transactionUnit, campaignId, growthHackType, new AppVirality.ConversionEventListener() {
+        @Override
+        public void onResponse(boolean isSuccess, String message, String errorMsg) {
+        	Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
+        }
+});
+```
+
+Some example events that you may want to track and reward users for the same are:
+
+"Finished_Level_5"
+"Clicked_Reorder"
+"Completed_Purchase"
+
+<b>NOTE:</b> You can simply pass <i>null</i> in place of <i>ConversionEventListener</i> instance, if you dont want to receive a callback.
