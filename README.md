@@ -255,3 +255,23 @@ appVirality.getCampaigns(Constants.GrowthHackType.All, new AppVirality.CampaignD
         }
 });
 ```
+
+<H4>STEP 6 - Register Events</H4>
+
+Registering Events are very important to reward your participants (Referrer/Friend) in case of a successful event. Also to calculate the LTV of participant (Referrer/Friend)
+
+Tip: Identify top influencer's and make most of their network.
+
+<H5>Install Event: </H5>
+
+Please add the following code to send a <b>Install</b> conversion event when a user installs the app.
+
+```java
+saveConversionEvent("Install", null, null, campaignId, Constants.GrowthHackType.Word_of_Mouth, new AppVirality.ConversionEventListener() {
+                    @Override
+                    public void onResponse(boolean isSuccess, String message, String errorMsg) {
+                        Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
+                    }
+                });
+```
+
