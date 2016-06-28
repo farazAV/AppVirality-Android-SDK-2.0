@@ -226,7 +226,7 @@ appVirality.getCampaigns(Constants.GrowthHackType.All, new AppVirality.CampaignD
                 if (womCampaignDetail != null) {
                     // Checking Popup visibility conditions as set by you on the AppVirality dashboard
                     if (appVirality.showCustomPopUp(womCampaignDetail))
-                        customPopUp.showLaunchPopUp(campaignDetails, womCampaignDetail, isMiniNotification);
+                        customPopUp.showLaunchPopUp(campaignDetails, womCampaignDetail, false);
                 }
         }
 });
@@ -248,7 +248,7 @@ appVirality.getCampaigns(Constants.GrowthHackType.All, new AppVirality.CampaignD
                 if (womCampaignDetail != null) {
                     // Checking Mini Notification visibility conditions as set by you on the AppVirality dashboard
                     if (appVirality.showCustomPopUp(womCampaignDetail))
-                        customPopUp.showLaunchPopUp(campaignDetails, womCampaignDetail, isMiniNotification);
+                        customPopUp.showLaunchPopUp(campaignDetails, womCampaignDetail, true);
                 }
         }
 });
@@ -316,8 +316,8 @@ saveConversionEvent("transaction", transactionValue, transactionUnit, campaignId
 
 Some example events that you may want to track and reward users for the same are:
 
-"Finished_Level_5"
-"Clicked_Reorder"
+"Finished_Level_5"  
+"Clicked_Reorder"  
 "Completed_Purchase"
 
 <b>NOTE:</b> You can simply pass <i>null</i> in place of <i>ConversionEventListener</i> instance, if you dont want to receive a callback.
