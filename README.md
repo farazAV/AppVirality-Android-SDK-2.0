@@ -216,15 +216,15 @@ You can launch the growth hack from popup dialog. You can configure the popup di
 
 ```java
 appVirality.getCampaigns(Constants.GrowthHackType.All, new AppVirality.CampaignDetailsReadyListener() {
-            @Override
-            public void onCampaignDetailsReady(ArrayList<CampaignDetail> campaignDetails, boolean refreshImages, String errorMsg) {
-                if (refreshImages)
+        @Override
+        public void onCampaignDetailsReady(ArrayList<CampaignDetail> campaignDetails, boolean refreshImages, String errorMsg) {
+        	if (refreshImages)
                     utils.refreshImages(utils.getCampaignDetail(Constants.GrowthHackType.Word_of_Mouth, campaignDetails));
                 CampaignDetail womCampaignDetail = utils.getCampaignDetail(Constants.GrowthHackType.Word_of_Mouth, campaignDetails);
                 if (womCampaignDetail != null) {
                     if (appVirality.showCustomPopUp(womCampaignDetail))
                         customPopUp.showLaunchPopUp(campaignDetails, womCampaignDetail, isMiniNotification);
                 }
-            }
-        });
-        ```
+        }
+});
+```
