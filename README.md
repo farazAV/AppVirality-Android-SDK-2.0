@@ -193,6 +193,7 @@ Use below code block to get the campaign details configured on AppVirality dashb
 appVirality.getCampaigns(Constants.GrowthHackType.All, new AppVirality.CampaignDetailsReadyListener() {
         @Override
         public void onCampaignDetailsReady(ArrayList<CampaignDetail> campaignDetails, boolean refreshImages, String errorMsg) {
+        	// Get Word of Mouth campaign details from list of campaign details
                 CampaignDetail womCampaignDetail = getCampaignDetail(Constants.GrowthHackType.Word_of_Mouth, campaignDetails);
                 if (refreshImages)
                 	refreshImages(womCampaignDetail);
@@ -206,3 +207,24 @@ appVirality.getCampaigns(Constants.GrowthHackType.All, new AppVirality.CampaignD
 ```
 
 <b>NOTE:</b> You must check for <i>refreshImages</i> value and download the images for the campaign if its true, whenever you use the <i>CampaignDetailsReadyListener</i> callback because this value will be provided only once whenever campaign data will change. So in order to have latest campaign images you must check <i>refreshImages</i> value each time you use this callback.
+
+Tip: Let the App users know about referral program by showing mini notification or some banner to achieve great results.
+
+#### Option 2 - Launch from Popup
+
+You can launch the growth hack from popup dialog. You can configure the popup dialog message and style from AppVirality dashboard and you need not update your app every time you make the modifications.
+
+```java
+appVirality.getCampaigns(Constants.GrowthHackType.All, new AppVirality.CampaignDetailsReadyListener() {
+            @Override
+            public void onCampaignDetailsReady(ArrayList<CampaignDetail> campaignDetails, boolean refreshImages, String errorMsg) {
+                if (refreshImages)
+                    utils.refreshImages(utils.getCampaignDetail(Constants.GrowthHackType.Word_of_Mouth, campaignDetails));
+                CampaignDetail womCampaignDetail = utils.getCampaignDetail(Constants.GrowthHackType.Word_of_Mouth, campaignDetails);
+                if (womCampaignDetail != null) {
+                    if (appVirality.showCustomPopUp(womCampaignDetail))
+                        customPopUp.showLaunchPopUp(campaignDetails, womCampaignDetail, isMiniNotification);
+                }
+            }
+        });
+        ```
