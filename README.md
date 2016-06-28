@@ -214,6 +214,10 @@ Tip: Let the App users know about referral program by showing mini notification 
 
 You can launch the growth hack from popup dialog. You can configure the popup dialog message and style from AppVirality dashboard and you need not update your app every time you make the modifications.
 
+You can control the visibility of this mini notification from dashboard.(i.e. By setting launch conditions like after how many app launches you want to show the notification or after how many days of first install you want to show the notification).
+
+Use the below code to create a popup for launching growth hack
+
 ```java
 appVirality.getCampaigns(Constants.GrowthHackType.All, new AppVirality.CampaignDetailsReadyListener() {
         @Override
@@ -222,6 +226,29 @@ appVirality.getCampaigns(Constants.GrowthHackType.All, new AppVirality.CampaignD
                     utils.refreshImages(utils.getCampaignDetail(Constants.GrowthHackType.Word_of_Mouth, campaignDetails));
                 CampaignDetail womCampaignDetail = utils.getCampaignDetail(Constants.GrowthHackType.Word_of_Mouth, campaignDetails);
                 if (womCampaignDetail != null) {
+                    // Checking Popup visibility conditions as set by you on the AppVirality dashboard
+                    if (appVirality.showCustomPopUp(womCampaignDetail))
+                        customPopUp.showLaunchPopUp(campaignDetails, womCampaignDetail, isMiniNotification);
+                }
+        }
+});
+```
+
+#### Option 3 - Launch from Mini Notification
+
+You can launch the GrowthHack from Mini notification. You can configure the Mini notification style and message from your AppVirality dashboard. You can control the visibility of this mini notification from dashboard, same as for a Popup.
+
+Use the below code to create a mini notification for launching growth hack
+
+```java
+appVirality.getCampaigns(Constants.GrowthHackType.All, new AppVirality.CampaignDetailsReadyListener() {
+        @Override
+        public void onCampaignDetailsReady(ArrayList<CampaignDetail> campaignDetails, boolean refreshImages, String errorMsg) {
+        	if (refreshImages)
+                    utils.refreshImages(utils.getCampaignDetail(Constants.GrowthHackType.Word_of_Mouth, campaignDetails));
+                CampaignDetail womCampaignDetail = utils.getCampaignDetail(Constants.GrowthHackType.Word_of_Mouth, campaignDetails);
+                if (womCampaignDetail != null) {
+                    // Checking Mini Notification visibility conditions as set by you on the AppVirality dashboard
                     if (appVirality.showCustomPopUp(womCampaignDetail))
                         customPopUp.showLaunchPopUp(campaignDetails, womCampaignDetail, isMiniNotification);
                 }
