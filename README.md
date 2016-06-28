@@ -268,10 +268,10 @@ Please add the following code to send a <b>Install</b> conversion event when a u
 
 ```java
 saveConversionEvent("Install", null, null, campaignId, Constants.GrowthHackType.Word_of_Mouth, new AppVirality.ConversionEventListener() {
-                    @Override
-                    public void onResponse(boolean isSuccess, String message, String errorMsg) {
-                        Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
-                    }
-                });
+        @Override
+        public void onResponse(boolean isSuccess, String message, String errorMsg) {
+        	Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
+        }
+});
 ```
 
