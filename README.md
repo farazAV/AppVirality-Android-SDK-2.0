@@ -339,7 +339,7 @@ If you use proguard with your application, there are a set of rules that you wil
 <H4>Finished Integration</H4>
 
 Congratulations!
-You have successfully completed the "Personalized-Referral" GrowthHack integration process. 
+You have successfully completed the AppVirality SDK integration process. 
 
 <H4>Whats Next</H4>
 
