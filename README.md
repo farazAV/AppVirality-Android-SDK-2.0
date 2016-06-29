@@ -343,4 +343,4 @@ You have successfully completed the "Personalized-Referral" GrowthHack integrati
 
 <H4>Whats Next</H4>
 
-Sitback and watch AppVirality in action by creating the campaigns from <a href="http://growth.appvirality.com">AppVirality Dashboard.</a>
+Sit back and watch AppVirality in action by creating the campaigns from <a href="http://growth.appvirality.com">AppVirality Dashboard.</a>
