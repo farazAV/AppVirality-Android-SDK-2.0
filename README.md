@@ -322,6 +322,7 @@ Some example events that you may want to track and reward users for the same are
 
 <b>NOTE:</b> You can simply pass <i>null</i> in place of <i>ConversionEventListener</i> instance, if you dont want to receive a callback.
 
+
 <b>Proguard Configuration:</b>
 If you use proguard with your application, there are a set of rules that you will need to include to get AppVirality to work. AppVirality will not function correctly if proguard obfuscates its classes.
 
@@ -330,7 +331,7 @@ If you use proguard with your application, there are a set of rules that you wil
 -dontwarn com.appvirality.**
 ```
 
-<H3>Finished Integration</H3>
+<H4>Finished Integration</H4>
 
 Congratulations!
 You have successfully completed the "Personalized-Referral" GrowthHack integration process. 
