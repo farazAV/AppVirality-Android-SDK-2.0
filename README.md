@@ -321,8 +321,7 @@ Some example events that you may want to track and reward users for the same are
 "Completed_Purchase"
 
 <b>NOTE:</b> You can simply pass <i>null</i> in place of <i>ConversionEventListener</i> instance, if you dont want to receive a callback.
-  
-  
+
 <b>Proguard Configuration:</b>
 If you use proguard with your application, there are a set of rules that you will need to include to get AppVirality to work. AppVirality will not function correctly if proguard obfuscates its classes.
 
