@@ -86,9 +86,24 @@ Once you've registered with AppVirality.com and add a new app, you will be given
 ```java
 <manifest..>
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />  
-    <!-- Optional permissions. WRITE_EXTERNAL_STORAGE is used to improve the performance by storing campaign images. -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- Optional permissions. ACCESS_COARSE_LOCATION and ACCESS_FINE_LOCATION are used to send location targetted campaigns to the user. -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!-- Optional permissions. WRITE_EXTERNAL_STORAGE and READ_EXTERNAL_STORAGE are used to improve the performance by storing and reading campaign images. -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <!-- Optional permissions. READ_PHONE_STATE is used to read device id and other device params to recognize a user. -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    
+    <!-- Optional permissions. The following permissions are required if you want to implement GCM for push notifications in your app. -->
+    <permission
+        android:name="<Your package name>.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="<Your package name>.permission.C2D_MESSAGE" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
 </manifest>
 ```
