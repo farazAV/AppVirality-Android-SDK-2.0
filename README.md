@@ -196,6 +196,12 @@ You can use the following method if you want to show some label or message bar, 
 Use below code block to get the campaign details configured on AppVirality dashboard.
 
 ```java
+import com.appvirality.AppVirality;
+import com.appvirality.CampaignDetail;
+import com.appvirality.Constants;
+import com.appvirality.UserDetails;
+...  
+
 appVirality.getCampaigns(Constants.GrowthHackType.All, new AppVirality.CampaignDetailsReadyListener() {
         @Override
         public void onCampaignDetailsReady(ArrayList<CampaignDetail> campaignDetails, boolean refreshImages, String errorMsg) {
