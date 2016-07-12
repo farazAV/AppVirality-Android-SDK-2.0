@@ -206,9 +206,9 @@ appVirality.getCampaigns(Constants.GrowthHackType.All, new AppVirality.CampaignD
         @Override
         public void onCampaignDetailsReady(ArrayList<CampaignDetail> campaignDetails, boolean refreshImages, String errorMsg) {
         	// Get Word of Mouth campaign details from list of campaign details
-                CampaignDetail womCampaignDetail = getCampaignDetail(Constants.GrowthHackType.Word_of_Mouth, campaignDetails);
+                CampaignDetail womCampaignDetail = utils.getCampaignDetail(Constants.GrowthHackType.Word_of_Mouth, campaignDetails);
                 if (refreshImages)
-                	refreshImages(womCampaignDetail);
+                	utils.refreshImages(womCampaignDetail);
                 if (campaignDetails.size() > 0 && womCampaignDetail != null) {
                 	// Campaigns available, display Refer & Earn button or launch growth hack screen
                 } else {
