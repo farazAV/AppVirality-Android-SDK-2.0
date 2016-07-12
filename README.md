@@ -129,6 +129,14 @@ if (extras != null && extras.containsKey("referrer")) {
 AppVirality appVirality = AppVirality.getInstance(SplashActivity.this);
 </code>
 
+To retrieve the already initialized <b>AppVirality</b> class singleton in classes other than launcher activity, use the following code
+
+<code>
+AppVirality appVirality = AppVirality.getInstance();
+</code>
+
+<b>NOTE:</b> Use <b>getInstance(context)</b> method in launcher activity to create <b>AppVirality</b> singleton and <b>getInstance()</b> method to retrieve the the already initialized singleton.
+
 2) Initializing the SDK
 
 * Create a <b>UserDetails</b> class object and set the various user details to recognize the user same as your backend system. Also, it is required to personalize the referral messages and welcome screen, which will be shown to new users upon app installation. (Friends shall be able to see the referrer's name and profile picture). We will also pass these user details through web-hooks to notify you on successful referral or conversion(install,signup or transaction,etc.)
