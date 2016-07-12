@@ -21,17 +21,9 @@ Integrating Appvirality into your App
 Throughout the document, invitation sender will be called as "Referrer" and receiver will be called as "Friend".
 
 
-<H4>STEP 1 - Adding dependency</H4>
+<H4>STEP 1 - Adding AppVirality SDK dependency</H4>
 
-This applies for Gradle based projects. Add the following dependency to your <b>build.gradle</b> file: 
-
-```java
-dependencies {
-
-    compile 'com.appvirality:AppviralityUI:1.1.23+'
-
-}
-```
+Paste AppVirality SDK to the <b>libs</b> folder of your application and then add it as a file dependency for the application module.
 
 
 <H4>STEP 2 - Set up your AppVirality Keys</H4>
