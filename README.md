@@ -95,7 +95,7 @@ Once you've registered with AppVirality.com and add a new app, you will be given
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <!-- Optional permissions. READ_PHONE_STATE is used to read device id and other device params to recognize a user. -->
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <!-- Optional permissions. The following permissions are required only if you want to implement push notifications using GCM. Replace <Your package name> with your application's package name -->
+    <!-- Optional permissions. The following permissions are required only if you want to implement push notifications using GCM. Replace <Your package name> with your application's package name. -->
     <permission
         android:name="<Your package name>.permission.C2D_MESSAGE"
         android:protectionLevel="signature" />
