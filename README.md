@@ -361,6 +361,57 @@ appVirality.getReferrerDetails(new AppVirality.ReferrerDetailsReadyListener() {
 });
 ```
 
+Update User Info
+-------------------------------------
+
+User Info can be updated anytime using the following steps
+
+<H4>STEP 1 - Set user info you want to update</H4>
+
+Create a <b>UserDetails</b> class object and set the user info you want to update using its setter methods.
+
+```java
+UserDetails userDetails = new UserDetails();
+userDetails.setReferralCode("ReferralCode");
+userDetails.setAppUserId("UserId");
+userDetails.setPushRegId("PushRegistrationId");
+userDetails.setUserEmail("Email");
+userDetails.setExtraInfo("ExtraInfo");
+userDetails.setUserName("Name);
+userDetails.setProfileImage("UserImage");
+userDetails.setMobileNo("MobileNo");
+userDetails.setCity("City");
+userDetails.setState("State");
+userDetails.setCountry("Country");
+userDetails.setExistingUser(false);
+```
+
+a) <b>setReferralCode</b> —  User's Referral Code  
+b) <b>setAppUserId</b> —  ID of the user in your App(helps to identify users on dashboard as you do in your app)  
+c) <b>setPushRegId</b> —  Unique id assigned to the device by your Push Notification Service. Providing this helps AppVirality in sending Push Notifications to Users  
+d) <b>setUserEmail</b> —  User's email address  
+e) <b>setExtraInfo</b> —  Comma separated extra info. For example, various email addresses separated by comma  
+f) <b>setUserName</b> — First Name of the user, required to personalize the referral messages  
+g) <b>setProfileImage</b> —  User profile picture URL, required to personalize the referral messages  
+h) <b>setMobileNo</b> —  User's mobile number  
+i) <b>setCity</b> —  User's city  
+j) <b>setState</b> —  User's state  
+k) <b>setCountry</b> —  User's country  
+l) <b>setExistingUser</b> — Set this as True, if you identify the user as existing user(this is useful if you don't want to reward existing users)
+
+<H4>STEP 2 - Update the user info</H4>
+
+Use the following code block to update the user info, passing the <b>UserDetails</b> object created in the previous step
+
+```java
+appVirality.updateAppUserInfo(userDetails, new AppVirality.UpdateUserInfoListener() {
+        @Override
+        public void onResponse(boolean isSuccess, String errorMsg) {
+        	// isSuccess would be true if user info updated successfully, else would be false with some errorMsg
+        }
+});
+```
+
 <H4>Whats Next</H4>
 
 Sit back and watch AppVirality in action by creating the campaigns from <a href="http://growth.appvirality.com">AppVirality Dashboard.</a>
