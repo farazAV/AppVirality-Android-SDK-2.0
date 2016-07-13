@@ -347,6 +347,20 @@ If you use proguard with your application, there are a set of rules that you wil
 Congratulations!
 You have successfully completed the AppVirality SDK integration process. 
 
+Get Referrer Details
+-------------------------------------
+
+You can get the referrer details from the SDK using the following code block
+
+```java
+appVirality.getReferrerDetails(new AppVirality.ReferrerDetailsReadyListener() {
+        @Override
+        public void onReferrerDetailsReady(JSONObject referrerDetails) {
+        	// Use referrerDetails json object returned here to get various referrer details
+        }
+});
+```
+
 <H4>Whats Next</H4>
 
 Sit back and watch AppVirality in action by creating the campaigns from <a href="http://growth.appvirality.com">AppVirality Dashboard.</a>
