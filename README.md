@@ -354,7 +354,7 @@ User Info can be updated anytime using the following steps
 
 <H4>STEP 1 - Set user info you want to update</H4>
 
-Create a <b>UserDetails</b> class object and set the user info you want to update using its setter methods.
+Create a <b>UserDetails</b> class object and set the user info you want to update using its setter methods. You can update only the following user info via <i>updateappuserinfo</i> API
 
 ```java
 UserDetails userDetails = new UserDetails();
