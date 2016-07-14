@@ -106,7 +106,7 @@ if (extras != null && extras.containsKey("referrer")) {
 ```
 (or)
 
-<b>NOTE:</b> If you have multiple <b>INSTALL_REFERRER</b> receivers in your App, please go through the documentation [here](https://github.com/farazAV/AppVirality-Android-SDK-2.0/wiki/Using-Multiple-Install-Referrer-Receivers).
+If you have multiple <b>INSTALL_REFERRER</b> receivers in your App, please go through the documentation [here](https://github.com/farazAV/AppVirality-Android-SDK-2.0/wiki/Using-Multiple-Install-Referrer-Receivers).
 
 
 <H4>STEP 4 - Initializing the AppVirality SDK</H4>
