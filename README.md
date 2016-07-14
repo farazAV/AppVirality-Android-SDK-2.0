@@ -173,7 +173,7 @@ appVirality.init(userDetails, new AppVirality.AppViralitySessionInitListener() {
 
 In-App referral growth hack can be launched in 3 different ways. You can use any/all of these 3 options to launch the growth hack.
 
-#### Option 1 - Launch from custom button i.e from "Invite Friends" or "Refer & Earn" button on your App menu
+##### Option 1 - Launch from custom button i.e from "Invite Friends" or "Refer & Earn" button on your App menu
 
 ###### Show Custom Button(i.e. "Refer & Earn" button) only on Campaign availability
 
