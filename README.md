@@ -207,7 +207,7 @@ appVirality.getCampaigns(Constants.GrowthHackType.All, new AppVirality.CampaignD
 
 <b>NOTE:</b> You must check for <i>refreshImages</i> value and download the images for the campaign if its true, whenever you use the <i>CampaignDetailsReadyListener</i> callback because this value will be provided only once whenever campaign data will change. So in order to have latest campaign images you must check <i>refreshImages</i> value each time you use this callback.
 
-#### Option 2 - Launch from Popup
+##### Option 2 - Launch from Popup
 
 You can launch the growth hack from popup dialog. You can configure the popup dialog message and style from AppVirality dashboard and you need not update your app every time you make the modifications.
 
@@ -231,7 +231,7 @@ appVirality.getCampaigns(Constants.GrowthHackType.All, new AppVirality.CampaignD
 });
 ```
 
-#### Option 3 - Launch from Mini Notification
+##### Option 3 - Launch from Mini Notification
 
 You can launch the GrowthHack from Mini notification. You can configure the Mini notification style and message from your AppVirality dashboard. You can control the visibility of this mini notification from dashboard, same as for a Popup.
 
