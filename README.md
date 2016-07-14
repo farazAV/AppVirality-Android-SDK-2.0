@@ -277,7 +277,7 @@ d) <b>campaignId</b> —  Campaign id if you want to register event for some par
 f) <b>growthHackType</b> — Type of growth hack for which you want to register event. For Ex. Constants.GrowthHackType.Word_of_Mouth, Constants.GrowthHackType.Loyalty_Program  
 g) <b>conversionEventListener</b> —  ConversionEventListener instance if you want to get a callback after API execution else null  
 
-Some example events that you may want to track and reward users for the same are:
+Some example custom events that you may want to track and reward users for the same are:
 
 "Finished_Level_5"  
 "Clicked_Reorder"  
