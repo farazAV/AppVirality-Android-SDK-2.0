@@ -270,59 +270,18 @@ AppVirality appVirality = AppVirality.getInstance();
 appVirality.saveConversionEvent(event, transactionValue, transactionUnit, campaignId, growthHackType, conversionEventListener);
 ```
 
-a) <b>event</b> —  Event Name. For ex, standard events install, signup, transaction or some other custom event  
+a) <b>event</b> —  Event Name. For Ex. standard events install, signup, transaction or some other custom event  
 b) <b>transactionValue</b> —  Amount of transaction done by user or null if not applicable  
 c) <b>transactionUnit</b> —  Unit for the transaction done by user or null if not applicable  
 d) <b>campaignId</b> —  Campaign id if you want to register event for some particular campaign else null  
-f) <b>growthHackType</b> — Type of growth hack for which you want to register event. Ex Constants.GrowthHackType.Word_of_Mouth, Constants.GrowthHackType.Loyalty_Program  
+f) <b>growthHackType</b> — Type of growth hack for which you want to register event. For Ex. Constants.GrowthHackType.Word_of_Mouth, Constants.GrowthHackType.Loyalty_Program  
 g) <b>conversionEventListener</b> —  ConversionEventListener instance if you want to get a callback after API execution else null  
-
-<H5>SignUp Event: </H5>
-
-Please add the following code block after successful Signup i.e. in your Singup button click event
-
-```java
-appVirality.saveConversionEvent("signup", null, null, null, Constants.GrowthHackType.Word_of_Mouth, new AppVirality.ConversionEventListener() {
-        @Override
-        public void onResponse(boolean isSuccess, String message, String errorMsg) {
-        	Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
-        }
-});
-```
-
-<H5>Transaction Event: </H5>
-
-Please add the following code block after successful transaction
-
-```java
-appVirality.saveConversionEvent("transaction", transactionValue, transactionUnit, null, Constants.GrowthHackType.Word_of_Mouth, new AppVirality.ConversionEventListener() {
-        @Override
-        public void onResponse(boolean isSuccess, String message, String errorMsg) {
-        	Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
-        }
-});
-```
-
-<H5>Custom Event: </H5>
-
-Please add the following code block after successful completion of your Custom Event
-
-```java
-saveConversionEvent("custom", transactionValue, transactionUnit, null, Constants.GrowthHackType.Word_of_Mouth, new AppVirality.ConversionEventListener() {
-        @Override
-        public void onResponse(boolean isSuccess, String message, String errorMsg) {
-        	Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
-        }
-});
-```
 
 Some example events that you may want to track and reward users for the same are:
 
 "Finished_Level_5"  
 "Clicked_Reorder"  
 "Completed_Purchase"
-
-<b>NOTE:</b> You can simply pass <i>null</i> in place of <i>ConversionEventListener</i> instance, if you dont want to receive a callback.
 
 <b>Proguard Configuration:</b>
 If you use proguard with your application, there are a set of rules that you will need to include to get AppVirality to work. AppVirality will not function correctly if proguard obfuscates its classes.
