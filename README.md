@@ -188,6 +188,7 @@ import com.appvirality.Constants;
 import com.appvirality.UserDetails;
 ...  
 
+AppVirality appVirality = AppVirality.getInstance();
 appVirality.getCampaigns(Constants.GrowthHackType.All, new AppVirality.CampaignDetailsReadyListener() {
         @Override
         public void onCampaignDetailsReady(ArrayList<CampaignDetail> campaignDetails, boolean refreshImages, String errorMsg) {
@@ -265,7 +266,8 @@ Tip: Identify top influencer's and make most of their network.
 Please add the following code to send a Install conversion event when a user installs the app
 
 ```java
-saveConversionEvent("install", null, null, campaignId, growthHackType, new AppVirality.ConversionEventListener() {
+AppVirality appVirality = AppVirality.getInstance();
+appVirality.saveConversionEvent("install", null, null, null, Constants.GrowthHackType.Word_of_Mouth, new AppVirality.ConversionEventListener() {
         @Override
         public void onResponse(boolean isSuccess, String message, String errorMsg) {
         	Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
@@ -278,7 +280,7 @@ saveConversionEvent("install", null, null, campaignId, growthHackType, new AppVi
 Please add the following code block after successful Signup i.e. in your Singup button click event
 
 ```java
-saveConversionEvent("signup", null, null, campaignId, growthHackType, new AppVirality.ConversionEventListener() {
+appVirality.saveConversionEvent("signup", null, null, null, Constants.GrowthHackType.Word_of_Mouth, new AppVirality.ConversionEventListener() {
         @Override
         public void onResponse(boolean isSuccess, String message, String errorMsg) {
         	Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
@@ -291,7 +293,7 @@ saveConversionEvent("signup", null, null, campaignId, growthHackType, new AppVir
 Please add the following code block after successful transaction
 
 ```java
-saveConversionEvent("transaction", transactionValue, transactionUnit, campaignId, growthHackType, new AppVirality.ConversionEventListener() {
+appVirality.saveConversionEvent("transaction", transactionValue, transactionUnit, null, Constants.GrowthHackType.Word_of_Mouth, new AppVirality.ConversionEventListener() {
         @Override
         public void onResponse(boolean isSuccess, String message, String errorMsg) {
         	Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
@@ -304,7 +306,7 @@ saveConversionEvent("transaction", transactionValue, transactionUnit, campaignId
 Please add the following code block after successful completion of your Custom Event
 
 ```java
-saveConversionEvent("transaction", transactionValue, transactionUnit, campaignId, growthHackType, new AppVirality.ConversionEventListener() {
+saveConversionEvent("custom-event", transactionValue, transactionUnit, null, Constants.GrowthHackType.Word_of_Mouth, new AppVirality.ConversionEventListener() {
         @Override
         public void onResponse(boolean isSuccess, String message, String errorMsg) {
         	Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
