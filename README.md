@@ -306,7 +306,7 @@ appVirality.saveConversionEvent("transaction", transactionValue, transactionUnit
 Please add the following code block after successful completion of your Custom Event
 
 ```java
-saveConversionEvent("custom-event", transactionValue, transactionUnit, null, Constants.GrowthHackType.Word_of_Mouth, new AppVirality.ConversionEventListener() {
+saveConversionEvent("custom", transactionValue, transactionUnit, null, Constants.GrowthHackType.Word_of_Mouth, new AppVirality.ConversionEventListener() {
         @Override
         public void onResponse(boolean isSuccess, String message, String errorMsg) {
         	Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
