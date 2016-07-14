@@ -111,7 +111,7 @@ if (extras != null && extras.containsKey("referrer")) {
 
 <H4>STEP 4 - Initializing the AppVirality SDK</H4>
 
-1) Create the <b>AppVirality</b> class singleton in the <b>onCreate</b> method of your app's launcher activity. It is very important to do this in the launcher activity so that the SDK will queue up all the API calls for retrying, which might have got failed in the past. Use the following code for the same
+1) Before actually initializing the SDK we need to create the <b<AppVirality</b> class singleton, which is the main class in the SDK we will need for various SDK operations. Create the <b>AppVirality</b> class singleton in the <b>onCreate</b> method of your app's launcher activity. It is very important to do this in the launcher activity so that the SDK will queue up all the API calls for retrying, which might have got failed in the past. Use the following code for the same
 
 <code>
 AppVirality appVirality = AppVirality.getInstance(SplashActivity.this);
