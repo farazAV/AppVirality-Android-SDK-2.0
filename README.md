@@ -394,6 +394,9 @@ appVirality.updateAppUserInfo(userDetails, new AppVirality.UpdateUserInfoListene
 });
 ```
 
+<H4>Displaying Welcome screen</H4>
+[Displaying Welcome screen to new users](https://github.com/farazAV/AppVirality-Android-SDK-2.0/wiki/Displaying-Welcome-screen-to-new-users)
+
 <H4>Whats Next</H4>
 
 Sit back and watch AppVirality in action by creating the campaigns from <a href="http://growth.appvirality.com">AppVirality Dashboard.</a>
