@@ -171,6 +171,16 @@ appVirality.init(userDetails, new AppVirality.AppViralitySessionInitListener() {
 
 <H4>STEP 5 - Launching Growth Hack</H4>
 
+Use the following code block to launch the In-App Referral growth hack screen:
+
+```java
+Intent growthHackIntent = new Intent(MainActivity.this, GrowthHackActivity.class);
+        growthHackIntent.putExtra("campaign_details", campaignDetails);
+        growthHackIntent.putExtra("is_earnings", true);
+        growthHackIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(growthHackIntent);
+```
+
 In-App referral growth hack can be launched in 3 different ways. You can use any/all of these 3 options to launch the growth hack.
 
 ##### Option 1 - Launch from custom button i.e from "Invite Friends" or "Refer & Earn" button on your App menu
