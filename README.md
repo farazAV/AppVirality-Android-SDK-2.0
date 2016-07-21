@@ -175,10 +175,10 @@ Use the following code block to launch the In-App Referral growth hack screen:
 
 ```java
 Intent growthHackIntent = new Intent(MainActivity.this, GrowthHackActivity.class);
-        growthHackIntent.putExtra("campaign_details", campaignDetails);
-        growthHackIntent.putExtra("is_earnings", false);
-        growthHackIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(growthHackIntent);
+growthHackIntent.putExtra("campaign_details", campaignDetails);
+growthHackIntent.putExtra("is_earnings", false);
+growthHackIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+startActivity(growthHackIntent);
 ```
 
 <b>NOTE:</b> Use "campaign_details" and "is_earnings" as intent extras while launching <i>GrowthHackActivity</i>, passing the <b>CampaignDetails</b> class object and a boolean respectively. If "is_earnings" is <i>true</i>, only the Earnings fragment shall be displayed; else both Refer and Earnings fragments shall be displayed.
