@@ -217,7 +217,7 @@ appVirality.getCampaigns(Constants.GrowthHackType.All, new AppVirality.CampaignD
 });
 ```
 
-<b>NOTE:</b> You must check for <i>refreshImages</i> value and download the images for the campaign if its true, whenever you use the <i>CampaignDetailsReadyListener</i> callback because this value will be provided only once whenever campaign data will change. So in order to have latest campaign images you must check <i>refreshImages</i> value each time you use this callback.
+<b>NOTE:</b> You must check for <i>refreshImages</i> value whenever you use <i>CampaignDetailsReadyListener</i> callback, if its true, download the Word of Mouth campaign images because this value will be provided only once whenever campaign data will change. So in order to have latest campaign images you must check <i>refreshImages</i> value each time you use this callback.
 
 ##### Option 2 - Launch from Popup
 
