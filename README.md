@@ -187,8 +187,6 @@ In-App referral growth hack can be launched in 3 different ways. You can use any
 
 ##### Option 1 - Launch from custom button i.e from "Invite Friends" or "Refer & Earn" button on your App menu
 
-###### Show Custom Button(i.e. "Refer & Earn" button) only on Campaign availability
-
 You can use the following method if you want to show some label or message bar, only if there is any campaign available for the user.<i>CampaignDetailsReadyListener</i> will get called irrespective of campaign availability but if campaign is not available the <i>onCampaignReady</i> method shall receive empty campaign list. This is mainly useful when you want to have some control over the "Invite" or "Share" button visibility.
 
 Use below code block to get the campaign details configured on AppVirality dashboard.
@@ -272,8 +270,6 @@ Tip: Let the App users know about referral program by showing mini notification 
 Registering Events are very important to reward your participants (Referrer/Friend) in case of a successful event. Also to calculate the LTV of participant (Referrer/Friend)
 
 Tip: Identify top influencer's and make most of their network.
-
-<H5>Install Event: </H5>
 
 Please add the following code to send a Install conversion event when a user installs the app
 
