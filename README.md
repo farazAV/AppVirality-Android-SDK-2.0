@@ -123,7 +123,7 @@ To retrieve the already initialized <b>AppVirality</b> class singleton in classe
 AppVirality appVirality = AppVirality.getInstance();
 </code>
 
-<b>NOTE:</b> Use <b>getInstance(context)</b> method in launcher activity to create <b>AppVirality</b> class singleton and <b>getInstance()</b> method to retrieve the the already initialized singleton.
+<b>NOTE:</b> Use <b>getInstance(context)</b> method in launcher activity to create <b>AppVirality</b> class singleton and <b>getInstance()</b> method to retrieve the already initialized singleton.
 
 2) Initializing the SDK
 
