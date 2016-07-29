@@ -23,7 +23,7 @@ Throughout the document, invitation sender will be called as "Referrer" and rece
 
 <H4>STEP 1 - Adding AppVirality SDK dependency</H4>
 
-Paste AppVirality SDK to the <b>libs</b> folder of your application and then add it as a file dependency for the application module.
+Copy AppVirality SDK jar to the <b>libs</b> folder of your application and then add it as a file dependency for the application module.
 
 
 <H4>STEP 2 - Set up your AppVirality Keys</H4>
