@@ -111,19 +111,15 @@ If you have multiple <b>INSTALL_REFERRER</b> receivers in your App, please go th
 
 <H4>STEP 4 - Initializing the AppVirality SDK</H4>
 
-1) Before actually initializing the SDK we need to create the <b<AppVirality</b> class singleton, which is the main class in the SDK we will need for various SDK operations. Create the <b>AppVirality</b> class singleton in the <b>onCreate</b> method of your app's launcher activity. It is very important to do this in the launcher activity so that the SDK will queue up all the API calls for retrying, which might have got failed in the past. Use the following code for the same
+1) Before actually initializing the SDK we need to instantiate the <b>AppVirality</b> class, which is the main class in the SDK we will need for various SDK operations. Its best to instantiate the <b>AppVirality</b> class in your app's launcher activity so that all the required SDK classes will get instantiated by the time user will be redirected to the app's home screen. Also, the SDK will queue up all the API calls for retrying, which might have got failed in the past. Use the following code for the same
 
 <code>
 AppVirality appVirality = AppVirality.getInstance(SplashActivity.this);
 </code>
 
-To retrieve the already initialized <b>AppVirality</b> class singleton in classes other than launcher activity, use the following code
+This method returns the <b>AppVirality</b> class instance, after instantiating if it was not already instantiated.
 
-<code>
-AppVirality appVirality = AppVirality.getInstance();
-</code>
-
-<b>NOTE:</b> Use <b>getInstance(context)</b> method in launcher activity to create <b>AppVirality</b> class singleton and <b>getInstance()</b> method to retrieve the already initialized singleton.
+<b>NOTE:</b> Use the same method to retrieve the already initialized singleton throughout your application.
 
 2) Initializing the SDK
 
