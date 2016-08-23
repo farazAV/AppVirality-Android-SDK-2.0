@@ -177,7 +177,7 @@ growthHackIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 startActivity(growthHackIntent);
 ```
 
-<b>NOTE:</b> Use "campaign_details" and "is_earnings" as intent extras while launching <i>GrowthHackActivity</i>, passing the <b>CampaignDetails</b> class object and a boolean respectively. If "is_earnings" is <i>true</i>, only the Earnings fragment shall be displayed; else both Refer and Earnings fragments shall be displayed.
+<b>NOTE:</b> Use "campaign_details" and "is_earnings" as intent extras while launching <i>GrowthHackActivity</i>, passing the <i>CampaignDetails</i> class object and a boolean respectively. If "is_earnings" is <i>true</i>, only the Earnings fragment shall be displayed; else both Refer and Earnings fragments shall be displayed.
 
 In-App referral growth hack can be launched in 3 different ways. You can use any/all of these 3 options to launch the growth hack.
 
