@@ -25,6 +25,20 @@ Throughout the document, invitation sender will be called as "Referrer" and rece
 
 Copy AppVirality SDK jar to the <b>libs</b> folder of your application and then add it as a file dependency for the application module.
 
+OR
+
+Use Gradle dependency for core SDK
+```java
+    compile 'com.appvirality:AppViralitySDK:2.0.0'
+```
+
+OR
+
+Use Gradle dependency for core SDK + Default UI
+
+```java
+    compile 'com.appvirality:AppViralityUI:2.0.0'
+```
 
 <H4>STEP 2 - Set up your AppVirality Keys</H4>
 
