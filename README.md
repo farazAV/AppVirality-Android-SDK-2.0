@@ -122,12 +122,18 @@ if (extras != null && extras.containsKey("referrer")) {
 
 If you have multiple <b>INSTALL_REFERRER</b> receivers in your App, please go through the documentation [here](https://github.com/farazAV/AppVirality-Android-SDK-2.0/wiki/Using-Multiple-Install-Referrer-Receivers).
 
-4) Declare GrowthHackActivity.java activity if you want to use AppVirality Default UI. With this, you must either use AppViralityTheme as the theme for GrowthHackActivity.java while declaring it as an activity in you manifest or create a new style extending AppViralityTheme as its parent, modifying the style attributes values as per your requirements and then use this theme for the GrowthHackActivity.java in the manifest.
+4) Declare following activities if you want to use AppVirality Default UI. With GrowthHackActivity.java, you must either use <i>AppViralityTheme</i> as the theme or create a new style extending <i>AppViralityTheme</i> as its parent, modifying the style attributes values as per your requirements and then use this theme.
 
 ```java
 <activity
         android:name="com.appvirality.appviralityui.activities.GrowthHackActivity"
         android:theme="@style/AppViralityTheme" />
+<activity android:name="com.appvirality.appviralityui.activities.WebViewActivity" />
+<!-- Optional. Required if you want to show Welcome Screen to the new user. -->
+<activity
+        android:name="com.appvirality.appviralityui.activities.WelcomeScreenActivity"
+        android:theme="@style/AppTheme.NoActionBar"
+        android:windowSoftInputMode="stateHidden" />
 ```
 
 <H4>STEP 4 - Initializing the AppVirality SDK</H4>
