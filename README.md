@@ -129,7 +129,7 @@ If you have multiple <b>INSTALL_REFERRER</b> receivers in your App, please go th
         android:name="com.appvirality.appviralityui.activities.GrowthHackActivity"
         android:theme="@style/AppViralityTheme" />
 <activity android:name="com.appvirality.appviralityui.activities.WebViewActivity" />
-<!-- Optional. Required if you want to show Welcome Screen to the new user. -->
+<!-- Optional. Required only if you want to show Welcome Screen to the new user. -->
 <activity
         android:name="com.appvirality.appviralityui.activities.WelcomeScreenActivity"
         android:theme="@style/AppTheme.NoActionBar"
