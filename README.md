@@ -209,9 +209,9 @@ import com.appvirality.UserDetails;
 ...  
 
 AppVirality appVirality = AppVirality.getInstance();
-appVirality.getCampaigns(Constants.GrowthHackType.All, new AppVirality.CampaignDetailsReadyListener() {
+appVirality.getCampaigns(null, new AppVirality.CampaignDetailsListener() {
         @Override
-        public void onCampaignDetailsReady(ArrayList<CampaignDetail> campaignDetails, boolean refreshImages, String errorMsg) {
+        public void onGetCampaignDetails(ArrayList<CampaignDetail> campaignDetails, boolean refreshImages, String errorMsg) {
         	// Get Word of Mouth campaign details from list of campaign details
                 CampaignDetail womCampaignDetail = utils.getCampaignDetail(Constants.GrowthHackType.Word_of_Mouth, campaignDetails);
                 if (refreshImages)
@@ -225,7 +225,7 @@ appVirality.getCampaigns(Constants.GrowthHackType.All, new AppVirality.CampaignD
 });
 ```
 
-<b>NOTE:</b> You must check for <i>refreshImages</i> value whenever you use <i>CampaignDetailsReadyListener</i> callback, if its true, download the Word of Mouth campaign images because this value will be provided only once whenever campaign data will change. So in order to have latest campaign images you must check <i>refreshImages</i> value each time you use this callback.
+<b>NOTE:</b> You must check for <i>refreshImages</i> value whenever you use <i>CampaignDetailsListener.onGetCampaignDetails</i> callback, if its true, download the Word of Mouth campaign images because this value will be provided only once whenever campaign data will change. So in order to have latest campaign images you must check <i>refreshImages</i> value each time you use this callback.
 
 ##### Option 2 - Launch from Popup
 
@@ -236,15 +236,15 @@ You can control the visibility of this mini notification from dashboard.(i.e. By
 Use the below code to create a popup for launching growth hack
 
 ```java
-appVirality.getCampaigns(Constants.GrowthHackType.All, new AppVirality.CampaignDetailsReadyListener() {
+appVirality.getCampaigns(Constants.GrowthHackType.Word_of_Mouth, new AppVirality.CampaignDetailsListener() {
         @Override
-        public void onCampaignDetailsReady(ArrayList<CampaignDetail> campaignDetails, boolean refreshImages, String errorMsg) {
-        	if (refreshImages)
-                    utils.refreshImages(utils.getCampaignDetail(Constants.GrowthHackType.Word_of_Mouth, campaignDetails));
-                CampaignDetail womCampaignDetail = utils.getCampaignDetail(Constants.GrowthHackType.Word_of_Mouth, campaignDetails);
+        public void onGetCampaignDetails(ArrayList<CampaignDetail> campaignDetails, boolean refreshImages, String errorMsg) {
+                CampaignDetail womCampaignDetail = campaignDetails.get(0);
                 if (womCampaignDetail != null) {
+                if (refreshImages)
+                    utils.refreshImages();
                     // Checking Popup visibility conditions as set by you on the AppVirality dashboard
-                    if (appVirality.showCustomPopUp(womCampaignDetail))
+                    if (appVirality.checkUserTargeting(womCampaignDetail))
                         customPopUp.showLaunchPopUp(campaignDetails, womCampaignDetail, false);
                 }
         }
@@ -258,15 +258,15 @@ You can launch the GrowthHack from Mini notification. You can configure the Mini
 Use the below code to create a mini notification for launching growth hack
 
 ```java
-appVirality.getCampaigns(Constants.GrowthHackType.All, new AppVirality.CampaignDetailsReadyListener() {
+appVirality.getCampaigns(null, new AppVirality.CampaignDetailsListener() {
         @Override
-        public void onCampaignDetailsReady(ArrayList<CampaignDetail> campaignDetails, boolean refreshImages, String errorMsg) {
-        	if (refreshImages)
-                    utils.refreshImages(utils.getCampaignDetail(Constants.GrowthHackType.Word_of_Mouth, campaignDetails));
-                CampaignDetail womCampaignDetail = utils.getCampaignDetail(Constants.GrowthHackType.Word_of_Mouth, campaignDetails);
+        public void onGetCampaignDetails(ArrayList<CampaignDetail> campaignDetails, boolean refreshImages, String errorMsg) {
+        	CampaignDetail womCampaignDetail = campaignDetails.get(0);
                 if (womCampaignDetail != null) {
+                if (refreshImages)
+                    utils.refreshImages();
                     // Checking Mini Notification visibility conditions as set by you on the AppVirality dashboard
-                    if (appVirality.showCustomPopUp(womCampaignDetail))
+                    if (appVirality.checkUserTargeting(womCampaignDetail))
                         customPopUp.showLaunchPopUp(campaignDetails, womCampaignDetail, true);
                 }
         }
@@ -275,9 +275,9 @@ appVirality.getCampaigns(Constants.GrowthHackType.All, new AppVirality.CampaignD
 
 Tip: Let the App users know about referral program by showing mini notification or some banner to achieve great results.
 
-<H4>STEP 6 - Register Events</H4>
+<H4>STEP 6 - Record Events</H4>
 
-Registering Events are very important to reward your participants (Referrer/Friend) in case of a successful event. Also to calculate the LTV of participant (Referrer/Friend)
+Recording Events are very important to reward your participants (Referrer/Friend) in case of a successful event. Also to calculate the LTV of participant (Referrer/Friend)
 
 Tip: Identify top influencer's and make most of their network.
 
@@ -288,12 +288,12 @@ AppVirality appVirality = AppVirality.getInstance();
 appVirality.saveConversionEvent(event, transactionValue, transactionUnit, campaignId, growthHackType, conversionEventListener);
 ```
 
-a) <b>event</b> —  Event Name. For Ex. standard events install, signup, transaction or some other custom event  
-b) <b>transactionValue</b> —  Amount of transaction done by user or null if not applicable  
-c) <b>transactionUnit</b> —  Unit for the transaction done by user or null if not applicable  
-d) <b>campaignId</b> —  Campaign id if you want to register event for some particular campaign else null  
-f) <b>growthHackType</b> — Type of growth hack for which you want to register event. For Ex. Constants.GrowthHackType.Word_of_Mouth, Constants.GrowthHackType.Loyalty_Program  
-g) <b>conversionEventListener</b> —  ConversionEventListener instance if you want to get a callback after API execution else null  
+a) <b>event</b> —  <i>String</i>. Name of the event to be recorded.  
+b) <b>transactionValue</b> —  <i>String</i>. Transaction amount for the event if applicable ; else null.  
+c) <b>transactionUnit</b> —  <i>String</i>. Transaction unit for the event if applicable ; else null.  
+d) <b>campaignId</b> —  <i>String</i>. Campaign Id for which to record the event, required only if multiple campaigns exists for a growth hack else can be null.  
+f) <b>growthHackType</b> — <i>enum</i>. Type of growth hack for which recording event. Ex, Constants.GrowthHackType.Word_of_Mouth, Constants.GrowthHackType.Loyalty_Program, etc.  
+g) <b>conversionEventListener</b> —  <i>ConversionEventListener</i>. ConversionEventListener instance if you want to get the callback after API execution ; else null.  
 
 Some example custom events that you may want to track and reward users for the same are:
 
