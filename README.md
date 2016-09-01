@@ -143,9 +143,12 @@ If you have multiple <b>INSTALL_REFERRER</b> receivers in your App, please go th
 
 1) Before actually initializing the SDK we need to instantiate the <i>AppVirality</i> class, which is the main class in the SDK we will need for various SDK operations. The best way to instantiate this class is in your app's launcher activity so that all the required SDK classes will get instantiated by the time user will be redirected to the app's home screen. Also, the SDK will queue up all the API calls for retrying, which might have got failed in the past. Use the following code for the same
 
-<code>
-AppVirality appVirality = AppVirality.getInstance(SplashActivity.this);
-</code>
+```java
+import com.appvirality.AppVirality;
+...
+
+AppVirality appVirality = AppVirality.getInstance(this);
+```
 
 This method returns the <i>AppVirality</i> class instance, after instantiating if it was not already instantiated.
 
