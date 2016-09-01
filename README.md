@@ -260,14 +260,16 @@ CustomPopUp customPopUp = new CustomPopUp(this);
 appVirality.getCampaigns(Constants.GrowthHackType.Word_of_Mouth, new AppVirality.CampaignDetailsListener() {
         @Override
         public void onGetCampaignDetails(ArrayList<CampaignDetail> campaignDetails, boolean refreshImages, String errorMsg) {
-                CampaignDetail womCampaignDetail = campaignDetails.get(0);
-                if (womCampaignDetail != null) {
-                	if (refreshImages)
-                        	// Refresh Word of Mouth campaign images
-                	// Checking Popup visibility conditions as set by you on the AppVirality dashboard
-                	if (appVirality.checkUserTargeting(womCampaignDetail))
-                        	customPopUp.showLaunchPopUp(campaignDetails, womCampaignDetail, false);
-                }
+        	if(campaignDetails.size > 0) {
+        		CampaignDetail womCampaignDetail = campaignDetails.get(0);
+	                if (womCampaignDetail != null) {
+	                	if (refreshImages)
+	                        	// Refresh Word of Mouth campaign images
+	                	// Checking Popup visibility conditions as set by you on the AppVirality dashboard
+	                	if (appVirality.checkUserTargeting(womCampaignDetail))
+	                        	customPopUp.showLaunchPopUp(campaignDetails, womCampaignDetail, false);
+	                }
+        	}
         }
 });
 ```
@@ -287,17 +289,19 @@ import com.appvirality.appviralityui.custom.CustomPopUp;
 
 AppVirality appVirality = AppVirality.getInstance(this);
 CustomPopUp customPopUp = new CustomPopUp(this);
-appVirality.getCampaigns(null, new AppVirality.CampaignDetailsListener() {
+appVirality.getCampaigns(Constants.GrowthHackType.Word_of_Mouth, new AppVirality.CampaignDetailsListener() {
         @Override
         public void onGetCampaignDetails(ArrayList<CampaignDetail> campaignDetails, boolean refreshImages, String errorMsg) {
-        	CampaignDetail womCampaignDetail = campaignDetails.get(0);
-                if (womCampaignDetail != null) {
-                	if (refreshImages)
-                        	// Refresh Word of Mouth campaign images
-                	// Checking Mini Notification visibility conditions as set by you on the AppVirality dashboard
-                	if (appVirality.checkUserTargeting(womCampaignDetail))
-                        	customPopUp.showLaunchPopUp(campaignDetails, womCampaignDetail, true);
-                }
+        	if(campaignDetails.size > 0) {
+        		CampaignDetail womCampaignDetail = campaignDetails.get(0);
+	                if (womCampaignDetail != null) {
+	                	if (refreshImages)
+	                        	// Refresh Word of Mouth campaign images
+	                	// Checking Mini Notification visibility conditions as set by you on the AppVirality dashboard
+	                	if (appVirality.checkUserTargeting(womCampaignDetail))
+	                        	customPopUp.showLaunchPopUp(campaignDetails, womCampaignDetail, true);
+	                }
+        	}
         }
 });
 ```
