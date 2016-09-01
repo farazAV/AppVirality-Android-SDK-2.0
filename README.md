@@ -113,6 +113,9 @@ Add the following code block if you don't already have an <b>INSTALL_REFERRER</b
 If you already have an <b>INSTALL_REFERRER</b> receiver, use following code block in the onReceive method of your broadcast receiver
 
 ```java
+import com.appvirality.AppVirality;
+...
+
 if (extras != null && extras.containsKey("referrer")) {
 	String referrer = intent.getStringExtra("referrer");
 	AppVirality.setReferrerKey(context, referrer);
@@ -153,35 +156,42 @@ This method returns the <i>AppVirality</i> class instance, after instantiating i
 * Create a <b>UserDetails</b> class object and set the various user details to recognize the user same as your backend system. Also, it is required to personalize the referral messages and welcome screen, which will be shown to new users upon app installation. (Friends shall be able to see the referrer's name and profile picture). We will also pass these user details through web-hooks to notify you on successful referral or conversion(install,signup or transaction,etc.)
 
 ```java
-UserDetails userDetails = new UserDetails();
-userDetails.setReferralCode("ReferralCode");
-userDetails.setAppUserId("UserId");
-userDetails.setPushRegId("PushRegistrationId");
-userDetails.setUserEmail("Email");
-userDetails.setUserName("Name);
-userDetails.setProfileImage("UserImage");
-userDetails.setMobileNo("MobileNo");
-userDetails.setCity("City");
-userDetails.setState("State");
-userDetails.setCountry("Country");
-userDetails.setExistingUser(false);
+import com.appvirality.UserDetails;
+...
+
+UserDetails userDetails = new UserDetails();	// Referrer's Referral Code
+userDetails.setReferralCode(referralCode);
+userDetails.setAppUserId(userId);
+userDetails.setPushRegId(pushRegistrationId);
+userDetails.setUserEmail(email);
+userDetails.setUserName(name);
+userDetails.setProfileImage(userImage);
+userDetails.setMobileNo(mobileNo);
+userDetails.setCity(city);
+userDetails.setState(state);
+userDetails.setCountry(country);
+userDetails.setExistingUser(isExistingUser);
 ```
 
-a) <b>setReferralCode</b> —  Referrer's Referral Code  
-b) <b>setAppUserId</b> —  ID of the user in your App(helps to identify users on dashboard as you do in your app)  
-c) <b>setPushRegId</b> —  Unique id assigned to the device by your Push Notification Service. Providing this helps AppVirality in sending Push Notifications to Users  
-d) <b>setUserEmail</b> —  User's email address  
-f) <b>setUserName</b> — First Name of the user, required to personalize the referral messages  
-g) <b>setProfileImage</b> —  User profile picture URL, required to personalize the referral messages  
-h) <b>setMobileNo</b> —  User's mobile number  
-i) <b>setCity</b> —  User's city  
-j) <b>setState</b> —  User's state  
-k) <b>setCountry</b> —  User's country  
-l) <b>setExistingUser</b> — Set this as True, if you identify the user as existing user(this is useful if you don't want to reward existing users)
+a) <b>referralCode</b> - <i>String</i>. Referrer's Referral Code  
+b) <b>userId</b> - <i>String</i>. ID of the user in your App(helps to identify users on dashboard as you do in your app)  
+c) <b>pushRegistrationId</b> - <i>String</i>. Unique id assigned to the device by your Push Notification Service. Providing this helps AppVirality in sending Push Notifications to Users  
+d) <b>email</b> - <i>String</i>. User's email address  
+f) <b>name</b> - <i>String</i>. First Name of the user, required to personalize the referral messages  
+g) <b>userImage</b> - <i>String</i>. User profile picture URL, required to personalize the referral messages  
+h) <b>mobileNo</b> - <i>String</i>. User's mobile number  
+i) <b>city</b> - <i>String</i>. User's city  
+j) <b>state</b> - <i>String</i>. User's state  
+k) <b>country</b> - <i>String</i>. User's country  
+l) <b>isExistingUser</b> - <i>boolean</i>. Set this as True, only if you identify the user as an existing user(this is useful if you don't want to reward existing users) ; else False
 
 * Invoke <b>init(UserDetails userDetails, AppViralitySessionInitListener callback)</b> method of the <b>AppVirality</b> class to start the AppVirality's initialization API calls, passing the <i>UserDetail</i> object created in the previous step and an <i>AppViralitySessionInitListener</i> instance. Use this method preferably in your splash activity or main activity, so that your campaigns will be ready in the background by the time your app gets loaded. This ensures smooth user experience. Use the following code to initialize the sdk
 
 ```java
+import com.appvirality.AppVirality;
+...
+
+AppVirality appVirality = AppVirality.getInstance(this);
 appVirality.init(userDetails, new AppVirality.AppViralitySessionInitListener() {
         @Override
         public void onInitFinished(boolean isInitialized, JSONObject responseData, String errorMessage) {
@@ -193,18 +203,6 @@ appVirality.init(userDetails, new AppVirality.AppViralitySessionInitListener() {
 ```  
 
 <H4>STEP 5 - Launching Growth Hack</H4>
-
-Use the following code block to launch the In-App Referral growth hack screen:
-
-```java
-Intent growthHackIntent = new Intent(MainActivity.this, GrowthHackActivity.class);
-growthHackIntent.putExtra("campaign_details", campaignDetails);
-growthHackIntent.putExtra("is_earnings", false);
-growthHackIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-startActivity(growthHackIntent);
-```
-
-<b>NOTE:</b> Use "campaign_details" and "is_earnings" as intent extras while launching <i>GrowthHackActivity</i>, passing the <i>CampaignDetails</i> class object and a boolean respectively. If "is_earnings" is <i>true</i>, only the Earnings fragment shall be displayed; else both Refer and Earnings fragments shall be displayed.
 
 In-App referral growth hack can be launched in 3 different ways. You can use any/all of these 3 options to launch the growth hack.
 
@@ -218,17 +216,16 @@ Use below code block to get the campaign details configured on AppVirality dashb
 import com.appvirality.AppVirality;
 import com.appvirality.CampaignDetail;
 import com.appvirality.Constants;
-import com.appvirality.UserDetails;
 ...  
 
-AppVirality appVirality = AppVirality.getInstance();
+AppVirality appVirality = AppVirality.getInstance(this);
 appVirality.getCampaigns(null, new AppVirality.CampaignDetailsListener() {
         @Override
         public void onGetCampaignDetails(ArrayList<CampaignDetail> campaignDetails, boolean refreshImages, String errorMsg) {
         	// Get Word of Mouth campaign details from list of campaign details
-                CampaignDetail womCampaignDetail = utils.getCampaignDetail(Constants.GrowthHackType.Word_of_Mouth, campaignDetails);
+                CampaignDetail womCampaignDetail = appVirality.getCampaignDetail(Constants.GrowthHackType.Word_of_Mouth, campaignDetails);
                 if (refreshImages)
-                	utils.refreshImages(womCampaignDetail);
+                	// Refresh Word of Mouth campaign images
                 if (campaignDetails.size() > 0 && womCampaignDetail != null) {
                 	// Campaigns available, display Refer & Earn button or launch growth hack screen
                 } else {
@@ -249,16 +246,24 @@ You can control the visibility of this mini notification from dashboard.(i.e. By
 Use the below code to create a popup for launching growth hack
 
 ```java
+import com.appvirality.AppVirality;
+import com.appvirality.CampaignDetail;
+import com.appvirality.Constants;
+import com.appvirality.appviralityui.custom.CustomPopUp;
+...  
+
+AppVirality appVirality = AppVirality.getInstance(this);
+CustomPopUp customPopUp = new CustomPopUp(this);
 appVirality.getCampaigns(Constants.GrowthHackType.Word_of_Mouth, new AppVirality.CampaignDetailsListener() {
         @Override
         public void onGetCampaignDetails(ArrayList<CampaignDetail> campaignDetails, boolean refreshImages, String errorMsg) {
                 CampaignDetail womCampaignDetail = campaignDetails.get(0);
                 if (womCampaignDetail != null) {
-                if (refreshImages)
-                    utils.refreshImages();
-                    // Checking Popup visibility conditions as set by you on the AppVirality dashboard
-                    if (appVirality.checkUserTargeting(womCampaignDetail))
-                        customPopUp.showLaunchPopUp(campaignDetails, womCampaignDetail, false);
+                	if (refreshImages)
+                        	// Refresh Word of Mouth campaign images
+                	// Checking Popup visibility conditions as set by you on the AppVirality dashboard
+                	if (appVirality.checkUserTargeting(womCampaignDetail))
+                        	customPopUp.showLaunchPopUp(campaignDetails, womCampaignDetail, false);
                 }
         }
 });
@@ -271,22 +276,44 @@ You can launch the GrowthHack from Mini notification. You can configure the Mini
 Use the below code to create a mini notification for launching growth hack
 
 ```java
+import com.appvirality.AppVirality;
+import com.appvirality.CampaignDetail;
+import com.appvirality.Constants;
+import com.appvirality.appviralityui.custom.CustomPopUp;
+...  
+
+AppVirality appVirality = AppVirality.getInstance(this);
+CustomPopUp customPopUp = new CustomPopUp(this);
 appVirality.getCampaigns(null, new AppVirality.CampaignDetailsListener() {
         @Override
         public void onGetCampaignDetails(ArrayList<CampaignDetail> campaignDetails, boolean refreshImages, String errorMsg) {
         	CampaignDetail womCampaignDetail = campaignDetails.get(0);
                 if (womCampaignDetail != null) {
-                if (refreshImages)
-                    utils.refreshImages();
-                    // Checking Mini Notification visibility conditions as set by you on the AppVirality dashboard
-                    if (appVirality.checkUserTargeting(womCampaignDetail))
-                        customPopUp.showLaunchPopUp(campaignDetails, womCampaignDetail, true);
+                	if (refreshImages)
+                        	// Refresh Word of Mouth campaign images
+                	// Checking Mini Notification visibility conditions as set by you on the AppVirality dashboard
+                	if (appVirality.checkUserTargeting(womCampaignDetail))
+                        	customPopUp.showLaunchPopUp(campaignDetails, womCampaignDetail, true);
                 }
         }
 });
 ```
 
 Tip: Let the App users know about referral program by showing mini notification or some banner to achieve great results.
+
+######## How to launch growth hack screen if using AppViralityUI
+
+Use the following code block to launch the In-App Referral growth hack screen:
+
+```java
+Intent growthHackIntent = new Intent(MainActivity.this, GrowthHackActivity.class);
+growthHackIntent.putExtra("campaign_details", campaignDetails);
+growthHackIntent.putExtra("is_earnings", false);
+growthHackIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+startActivity(growthHackIntent);
+```
+
+<b>NOTE:</b> Use "campaign_details" and "is_earnings" as intent extras while launching <i>GrowthHackActivity</i>, passing the <i>CampaignDetails</i> class object and a boolean respectively. If "is_earnings" is <i>true</i>, only the Earnings fragment shall be displayed; else both Refer and Earnings fragments shall be displayed.
 
 <H4>STEP 6 - Record Events</H4>
 
@@ -297,16 +324,19 @@ Tip: Identify top influencer's and make most of their network.
 Please add the following code to send a Install conversion event when a user installs the app
 
 ```java
-AppVirality appVirality = AppVirality.getInstance();
+import com.appvirality.AppVirality;
+...
+
+AppVirality appVirality = AppVirality.getInstance(this);
 appVirality.saveConversionEvent(event, transactionValue, transactionUnit, campaignId, growthHackType, conversionEventListener);
 ```
 
-a) <b>event</b> —  <i>String</i>. Name of the event to be recorded.  
-b) <b>transactionValue</b> —  <i>String</i>. Transaction amount for the event if applicable ; else null.  
-c) <b>transactionUnit</b> —  <i>String</i>. Transaction unit for the event if applicable ; else null.  
-d) <b>campaignId</b> —  <i>String</i>. Campaign Id for which to record the event, required only if multiple campaigns exists for a growth hack else can be null.  
-f) <b>growthHackType</b> — <i>enum</i>. Type of growth hack for which recording event. Ex, Constants.GrowthHackType.Word_of_Mouth, Constants.GrowthHackType.Loyalty_Program, etc.  
-g) <b>conversionEventListener</b> —  <i>ConversionEventListener</i>. ConversionEventListener instance if you want to get the callback after API execution ; else null.  
+a) <b>event</b> - <i>String</i>. Name of the event to be recorded.  
+b) <b>transactionValue</b> - <i>String</i>. Transaction amount for the event if applicable ; else null.  
+c) <b>transactionUnit</b> - <i>String</i>. Transaction unit for the event if applicable ; else null.  
+d) <b>campaignId</b> - <i>String</i>. Campaign Id for which to record the event, required only if multiple campaigns exists for a growth hack else can be null.  
+f) <b>growthHackType</b> - <i>enum</i>. Type of growth hack for which recording event. Ex, Constants.GrowthHackType.Word_of_Mouth, Constants.GrowthHackType.Loyalty_Program, etc.  
+g) <b>conversionEventListener</b> - <i>ConversionEventListener</i>. ConversionEventListener instance if you want to get the callback after API execution ; else null.  
 
 Some example custom events that you may want to track and reward users for the same are:
 
@@ -333,6 +363,10 @@ Get Referrer Details
 You can get the referrer details from the SDK using the following code block
 
 ```java
+import com.appvirality.AppVirality;
+...
+
+AppVirality appVirality = AppVirality.getInstance(this);
 appVirality.getReferrerDetails(new AppVirality.ReferrerDetailsReadyListener() {
         @Override
         public void onReferrerDetailsReady(JSONObject referrerDetails) {
@@ -351,35 +385,42 @@ User Info can be updated anytime using the following steps
 Create a <b>UserDetails</b> class object and set the user info you want to update using its setter methods. You can update only the following user info via <i>updateappuserinfo</i> API
 
 ```java
+import com.appvirality.UserDetails;
+...
+
 UserDetails userDetails = new UserDetails();
-userDetails.setAppUserId("UserId");
-userDetails.setPushRegId("PushRegistrationId");
-userDetails.setUserEmail("Email");
-userDetails.setUserName("Name);
-userDetails.setProfileImage("UserImage");
-userDetails.setMobileNo("MobileNo");
-userDetails.setCity("City");
-userDetails.setState("State");
-userDetails.setCountry("Country");
-userDetails.setExistingUser(false);
+userDetails.setAppUserId(userId);
+userDetails.setPushRegId(pushRegistrationId);
+userDetails.setUserEmail(email);
+userDetails.setUserName(name);
+userDetails.setProfileImage(userImage);
+userDetails.setMobileNo(mobileNo);
+userDetails.setCity(city);
+userDetails.setState(state);
+userDetails.setCountry(country);
+userDetails.setExistingUser(isExistingUser);
 ```
 
-a) <b>setAppUserId</b> —  ID of the user in your App(helps to identify users on dashboard as you do in your app)  
-b) <b>setPushRegId</b> —  Unique id assigned to the device by your Push Notification Service. Providing this helps AppVirality in sending Push Notifications to Users  
-c) <b>setUserEmail</b> —  User's email address  
-d) <b>setUserName</b> — First Name of the user, required to personalize the referral messages  
-e) <b>setProfileImage</b> —  User profile picture URL, required to personalize the referral messages  
-f) <b>setMobileNo</b> —  User's mobile number  
-g) <b>setCity</b> —  User's city  
-h) <b>setState</b> —  User's state  
-i) <b>setCountry</b> —  User's country  
-j) <b>setExistingUser</b> — Set this as True, if you identify the user as existing user(this is useful if you don't want to reward existing users)
+a) <b>userId</b> —  ID of the user in your App(helps to identify users on dashboard as you do in your app)  
+b) <b>pushRegistrationId</b> —  Unique id assigned to the device by your Push Notification Service. Providing this helps AppVirality in sending Push Notifications to Users  
+c) <b>email</b> —  User's email address  
+d) <b>name</b> — First Name of the user, required to personalize the referral messages  
+e) <b>userImage</b> —  User profile picture URL, required to personalize the referral messages  
+f) <b>mobileNo</b> —  User's mobile number  
+g) <b>city</b> —  User's city  
+h) <b>state</b> —  User's state  
+i) <b>country</b> —  User's country  
+j) <b>isExistingUser</b> — Set this as True, only if you identify the user as an existing user(this is useful if you don't want to reward existing users) ; else False
 
 <H4>STEP 2 - Update the user info</H4>
 
 Use the following code block to update the user info, passing the <b>UserDetails</b> object created in the previous step
 
 ```java
+import com.appvirality.AppVirality;
+...
+
+AppVirality appVirality = AppVirality.getInstance(this);
 appVirality.updateAppUserInfo(userDetails, new AppVirality.UpdateUserInfoListener() {
         @Override
         public void onResponse(boolean isSuccess, String errorMsg) {
