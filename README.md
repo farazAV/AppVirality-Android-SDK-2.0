@@ -152,7 +152,7 @@ AppVirality appVirality = AppVirality.getInstance(this);
 
 This method returns the <i>AppVirality</i> class instance, after instantiating if it was not already instantiated.
 
-<b>NOTE:</b> Use the same method to retrieve the already initialized singleton throughout your application.
+<b>NOTE:</b> Use the same above method to retrieve the already initialized singleton throughout your application.
 
 2) Initializing the SDK
 
