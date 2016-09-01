@@ -156,7 +156,7 @@ This method returns the <i>AppVirality</i> class instance, after instantiating i
 
 2) Initializing the SDK
 
-* Create a <b>UserDetails</b> class object and set the various user details to recognize the user same as your backend system. Also, it is required to personalize the referral messages and welcome screen, which will be shown to new users upon app installation. (Friends shall be able to see the referrer's name and profile picture). We will also pass these user details through web-hooks to notify you on successful referral or conversion(install,signup or transaction,etc.)
+* Create a <i>UserDetails</i> class object and set the various user details to recognize the user same as your backend system. Also, it is required to personalize the referral messages and welcome screen, which will be shown to new users upon app installation. (Friends shall be able to see the referrer's name and profile picture). We will also pass these user details through web-hooks to notify you on successful referral or conversion(install,signup or transaction,etc.)
 
 ```java
 import com.appvirality.UserDetails;
@@ -180,15 +180,15 @@ a) <b>referralCode</b> - <i>String</i>. Referrer's Referral Code
 b) <b>userId</b> - <i>String</i>. ID of the user in your App(helps to identify users on dashboard as you do in your app)  
 c) <b>pushRegistrationId</b> - <i>String</i>. Unique id assigned to the device by your Push Notification Service. Providing this helps AppVirality in sending Push Notifications to Users  
 d) <b>email</b> - <i>String</i>. User's email address  
-f) <b>name</b> - <i>String</i>. First Name of the user, required to personalize the referral messages  
-g) <b>userImage</b> - <i>String</i>. User profile picture URL, required to personalize the referral messages  
-h) <b>mobileNo</b> - <i>String</i>. User's mobile number  
-i) <b>city</b> - <i>String</i>. User's city  
-j) <b>state</b> - <i>String</i>. User's state  
-k) <b>country</b> - <i>String</i>. User's country  
-l) <b>isExistingUser</b> - <i>boolean</i>. Set this as True, only if you identify the user as an existing user(this is useful if you don't want to reward existing users) ; else False
+e) <b>name</b> - <i>String</i>. First Name of the user, required to personalize the referral messages  
+f) <b>userImage</b> - <i>String</i>. User profile picture URL, required to personalize the referral messages  
+g) <b>mobileNo</b> - <i>String</i>. User's mobile number  
+h) <b>city</b> - <i>String</i>. User's city  
+i) <b>state</b> - <i>String</i>. User's state  
+j) <b>country</b> - <i>String</i>. User's country  
+k) <b>isExistingUser</b> - <i>boolean</i>. Set this as True, only if you identify the user as an existing user(this is useful if you don't want to reward existing users) ; else False
 
-* Invoke <b>init(UserDetails userDetails, AppViralitySessionInitListener callback)</b> method of the <b>AppVirality</b> class to start the AppVirality's initialization API calls, passing the <i>UserDetail</i> object created in the previous step and an <i>AppViralitySessionInitListener</i> instance. Use this method preferably in your splash activity or main activity, so that your campaigns will be ready in the background by the time your app gets loaded. This ensures smooth user experience. Use the following code to initialize the sdk
+* Invoke <b>init</b> method of the <b>AppVirality</b> class to start the AppVirality's initialization API calls, passing the <i>UserDetail</i> object created in the previous step and an <i>AppViralitySessionInitListener</i> instance. Use this method preferably in your splash activity or main activity, so that your campaigns will be ready in the background by the time your app gets loaded. This ensures smooth user experience. Use the following code to initialize the sdk
 
 ```java
 import com.appvirality.AppVirality;
@@ -304,11 +304,14 @@ appVirality.getCampaigns(null, new AppVirality.CampaignDetailsListener() {
 
 Tip: Let the App users know about referral program by showing mini notification or some banner to achieve great results.
 
-######## How to launch growth hack screen if using AppViralityUI
+####### How to launch growth hack screen if using AppViralityUI
 
 Use the following code block to launch the In-App Referral growth hack screen:
 
 ```java
+import com.appvirality.appviralityui.activities.GrowthHackActivity;
+...
+
 Intent growthHackIntent = new Intent(MainActivity.this, GrowthHackActivity.class);
 growthHackIntent.putExtra("campaign_details", campaignDetails);
 growthHackIntent.putExtra("is_earnings", false);
