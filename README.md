@@ -267,7 +267,7 @@ appVirality.getCampaigns(Constants.GrowthHackType.Word_of_Mouth, new AppVirality
 	                        	// Refresh Word of Mouth campaign images
 	                	// Checking Popup visibility conditions as set by you on the AppVirality dashboard
 	                	if (appVirality.checkUserTargeting(womCampaignDetail))
-	                        	customPopUp.showLaunchPopUp(campaignDetails, womCampaignDetail, false);
+	                        	customPopUp.showPopUp(campaignDetails, womCampaignDetail);
 	                }
         	}
         }
@@ -299,7 +299,7 @@ appVirality.getCampaigns(Constants.GrowthHackType.Word_of_Mouth, new AppVirality
 	                        	// Refresh Word of Mouth campaign images
 	                	// Checking Mini Notification visibility conditions as set by you on the AppVirality dashboard
 	                	if (appVirality.checkUserTargeting(womCampaignDetail))
-	                        	customPopUp.showLaunchPopUp(campaignDetails, womCampaignDetail, true);
+	                        	customPopUp.showMiniNotification(campaignDetails, womCampaignDetail);
 	                }
         	}
         }
