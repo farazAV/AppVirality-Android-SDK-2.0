@@ -125,7 +125,7 @@ if (extras != null && extras.containsKey("referrer")) {
 
 If you have multiple <b>INSTALL_REFERRER</b> receivers in your App, please go through the documentation [here](https://github.com/farazAV/AppVirality-Android-SDK-2.0/wiki/Using-Multiple-Install-Referrer-Receivers).
 
-4) Declare following activities if you want to use AppVirality Default UI. With GrowthHackActivity.java, you must either use <i>AppViralityTheme</i> as the theme or create a new style extending <i>AppViralityTheme</i> as its parent, modifying the style attributes values as per your requirements and then use this theme.
+4) Declare following activities if you are using AppViralityUI dependency. With GrowthHackActivity.java, you must either use <i>AppViralityTheme</i> as the theme or create a new style extending <i>AppViralityTheme</i> as its parent, modifying the style attributes values as per your requirements and then use this theme.
 
 ```java
 <activity
