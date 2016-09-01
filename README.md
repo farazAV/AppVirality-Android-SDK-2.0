@@ -162,7 +162,7 @@ This method returns the <i>AppVirality</i> class instance, after instantiating i
 import com.appvirality.UserDetails;
 ...
 
-UserDetails userDetails = new UserDetails();	// Referrer's Referral Code
+UserDetails userDetails = new UserDetails();
 userDetails.setReferralCode(referralCode);
 userDetails.setAppUserId(userId);
 userDetails.setPushRegId(pushRegistrationId);
