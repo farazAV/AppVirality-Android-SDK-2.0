@@ -308,9 +308,9 @@ appVirality.getCampaigns(Constants.GrowthHackType.Word_of_Mouth, new AppVirality
 
 Tip: Let the App users know about referral program by showing mini notification or some banner to achieve great results.
 
-<b>How to launch growth hack screen</b>
+###### How to launch growth hack screen from default UI
 
-Use the following code block to launch the In-App Referral growth hack screen in AppViralityUI:
+If you are using the AppViralityUI dependency you can launch the default growth hack screen using the below code:
 
 ```java
 import com.appvirality.appviralityui.activities.GrowthHackActivity;
