@@ -247,7 +247,7 @@ You can launch the growth hack from popup dialog. You can configure the popup di
 
 You can control the visibility of this Popup from dashboard.(i.e. By setting launch conditions like after how many app launches you want to show the popup or after how many days of first install you want to show the popup).
 
-Use the below code to create a popup for launching growth hack
+Use the below code to show a popup for launching growth hack
 
 ```java
 import com.appvirality.AppVirality;
@@ -281,7 +281,7 @@ appVirality.getCampaigns(Constants.GrowthHackType.Word_of_Mouth, new AppVirality
 
 You can launch the GrowthHack from Mini notification. You can configure the Mini notification style and message from your AppVirality dashboard. You can control the visibility of this mini notification from dashboard, same as for a Popup.
 
-Use the below code to create a mini notification for launching growth hack
+Use the below code to show a mini notification for launching growth hack
 
 ```java
 import com.appvirality.AppVirality;
