@@ -227,8 +227,9 @@ appVirality.getCampaigns(null, new AppVirality.CampaignDetailsListener() {
         public void onGetCampaignDetails(ArrayList<CampaignDetail> campaignDetails, boolean refreshImages, String errorMsg) {
         	// Get Word of Mouth campaign details from list of campaign details
                 CampaignDetail womCampaignDetail = appVirality.getCampaignDetail(Constants.GrowthHackType.Word_of_Mouth, campaignDetails);
-                if (refreshImages)
+                if (refreshImages) {
                 	// Refresh Word of Mouth campaign images
+                }
                 if (campaignDetails.size() > 0 && womCampaignDetail != null) {
                 	// Campaigns available, display Refer & Earn button or launch growth hack screen
                 } else {
@@ -263,11 +264,13 @@ appVirality.getCampaigns(Constants.GrowthHackType.Word_of_Mouth, new AppVirality
         	if(campaignDetails.size > 0) {
         		CampaignDetail womCampaignDetail = campaignDetails.get(0);
 	                if (womCampaignDetail != null) {
-	                	if (refreshImages)
-	                        	// Refresh Word of Mouth campaign images
+	                	if (refreshImages) {
+		                	// Refresh Word of Mouth campaign images
+		                }
 	                	// Checking Popup visibility conditions as set by you on the AppVirality dashboard
-	                	if (appVirality.checkUserTargeting(womCampaignDetail))
-	                        	customPopUp.showPopUp(campaignDetails, womCampaignDetail);
+	                	if (appVirality.checkUserTargeting(womCampaignDetail)) {
+	                		customPopUp.showPopUp(campaignDetails, womCampaignDetail);
+	                	}
 	                }
         	}
         }
@@ -295,11 +298,13 @@ appVirality.getCampaigns(Constants.GrowthHackType.Word_of_Mouth, new AppVirality
         	if(campaignDetails.size > 0) {
         		CampaignDetail womCampaignDetail = campaignDetails.get(0);
 	                if (womCampaignDetail != null) {
-	                	if (refreshImages)
-	                        	// Refresh Word of Mouth campaign images
+	                	if (refreshImages) {
+		                	// Refresh Word of Mouth campaign images
+		                }
 	                	// Checking Mini Notification visibility conditions as set by you on the AppVirality dashboard
-	                	if (appVirality.checkUserTargeting(womCampaignDetail))
-	                        	customPopUp.showMiniNotification(campaignDetails, womCampaignDetail);
+	                	if (appVirality.checkUserTargeting(womCampaignDetail)) {
+	                		customPopUp.showMiniNotification(campaignDetails, womCampaignDetail);
+	                	}
 	                }
         	}
         }
