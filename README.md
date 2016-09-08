@@ -81,9 +81,6 @@ Once you've registered with AppVirality.com and add a new app, you will be given
 <manifest..>
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <!-- Optional permissions. ACCESS_COARSE_LOCATION and ACCESS_FINE_LOCATION are used to send location targeted campaigns to the user. -->
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <!-- Optional permissions. WRITE_EXTERNAL_STORAGE and READ_EXTERNAL_STORAGE are used to improve the performance by storing and reading campaign images. -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
