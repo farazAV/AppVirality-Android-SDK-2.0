@@ -202,6 +202,8 @@ appVirality.init(userDetails, new AppVirality.AppViralitySessionInitListener() {
 });
 ```  
 
+<b>NOTE:</b> You need to invoke the above method on each launch but if your app uses Login/Logout feature then you should first ensure that the user is logged-in before calling the init() method so that you will have the user details required for initializing the SDK.
+
 <H4>STEP 5 - Launching Growth Hack</H4>
 
 In-App referral growth hack can be launched in 3 different ways. You can use any/all of these 3 options to launch the growth hack.
