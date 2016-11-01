@@ -162,7 +162,7 @@ import com.appvirality.UserDetails;
 UserDetails userDetails = new UserDetails();
 userDetails.setReferralCode(referralCode);
 userDetails.setAppUserId(userId);
-userDetails.setPushRegId(pushRegistrationId);
+userDetails.setPushToken(pushToken);
 userDetails.setUserEmail(email);
 userDetails.setUserName(name);
 userDetails.setProfileImage(userImage);
@@ -175,7 +175,7 @@ userDetails.setExistingUser(isExistingUser);
 
 a) <b>referralCode</b> - <i>String</i>. Referrer's Referral Code  
 b) <b>userId</b> - <i>String</i>. ID of the user in your App(helps to identify users on dashboard as you do in your app)  
-c) <b>pushRegistrationId</b> - <i>String</i>. Unique id assigned to the device by your Push Notification Service. Providing this helps AppVirality in sending Push Notifications to Users  
+c) <b>pushToken</b> - <i>String</i>. Unique Token assigned to the device by your Push Notification Service. Providing this helps AppVirality in sending Push Notifications to Users  
 d) <b>email</b> - <i>String</i>. User's email address  
 e) <b>name</b> - <i>String</i>. First Name of the user, required to personalize the referral messages  
 f) <b>userImage</b> - <i>String</i>. User profile picture URL, required to personalize the referral messages  
