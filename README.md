@@ -184,7 +184,7 @@ import com.appvirality.AppVirality;
 AppVirality appVirality = AppVirality.getInstance(this);
 ```
 
-<b>OR<b>
+<b>OR</b>
 	
 Use the below method if you want to configure any properties for the SDK using [Config](http://dev.appvirality.com/docs/appvirality-docs/android-sdk-integration/public-classes/#Config) class.
 ```java
