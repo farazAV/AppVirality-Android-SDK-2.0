@@ -176,11 +176,27 @@ Now declare the above created provider paths file in your application manifest. 
 
 1) Before actually initializing the SDK we need to instantiate the <i>AppVirality</i> class, which is the main class in the SDK we will need for various SDK operations. The best way to instantiate this class is in your app's launcher activity so that all the required SDK classes will get instantiated by the time user will be redirected to the app's home screen. Use the following code for the same:
 
+Use the below method if you want to instantiate the SDK with default configuration.
 ```java
 import com.appvirality.AppVirality;
 ...
 
 AppVirality appVirality = AppVirality.getInstance(this);
+```
+
+<b>OR<b>
+	
+Use the below method if you want to configure any properties for the SDK using [Config](http://dev.appvirality.com/docs/appvirality-docs/android-sdk-integration/public-classes/#Config) class.
+```java
+import com.appvirality.AppVirality;
+ import com.appvirality.Config;
+ ...
+ 
+ Config config = new Config();
+ // config.printLogs = true;
+ // config.runEmulatorChecks = true;
+ // config.runRootChecks = true;
+ appVirality = AppVirality.getInstance(this, config);
 ```
 
 This method returns the <i>AppVirality</i> class instance, after instantiating if it was not already instantiated.
