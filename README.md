@@ -6,7 +6,7 @@ AppVirality is a Plug and Play Growth Hacking Toolkit for Mobile Apps.
 
 It helps to identify and implement the right growth hacks, within seconds. No Coding Required. We are providing easy to integrate SDK's for Android, iOS and Windows(coming soon) platforms.
 
-Appvirality Android SDK supports from Android (API level 8) and higher.
+Appvirality Android SDK supports from Android (API level 9) and higher.
 
 Version History 
 ---------------
@@ -26,14 +26,14 @@ Throughout the document, invitation sender will be called as "Referrer" and rece
 Use Gradle dependency for core SDK + Default UI
 
 ```java
-    compile 'com.appvirality:AppViralityUI:2.0.0'
+    compile 'com.appvirality:AppViralityUI:2.0.8'
 ```
 
 OR
 
 Use Gradle dependency for core SDK
 ```java
-    compile 'com.appvirality:AppViralitySDK:2.0.0'
+    compile 'com.appvirality:AppViralitySDK:2.0.8'
 ```
 
 OR
@@ -84,9 +84,9 @@ Once you've registered with AppVirality.com and add a new app, you will be given
     <!-- Optional permissions. WRITE_EXTERNAL_STORAGE and READ_EXTERNAL_STORAGE are used to improve the performance by storing and reading campaign images. -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <!-- Optional permissions. READ_PHONE_STATE is used to read device id and other device params to recognize a user. -->
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-
+    <!-- Optional permissions. READ_CONTACTS is used to read device contacts for
+    implementing InviteContacts social action. -->
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
 </manifest>
 ```
 
@@ -134,6 +134,41 @@ If you have multiple <b>INSTALL_REFERRER</b> receivers in your App, please go th
         android:name="com.appvirality.appviralityui.activities.WelcomeScreenActivity"
         android:theme="@style/AppTheme.NoActionBar"
         android:windowSoftInputMode="stateHidden" />
+<!-- Optional. Required only if you want to use InviteContacts social action. -->
+<activity
+    android:name="com.appvirality.appviralityui.activities.InviteContactsActivity"
+    android:screenOrientation="portrait"
+    android:theme="@style/AppViralityTheme" />
+```
+
+5. For posting campaign image with the invite message on some social networks, you need to share the image with the corresponding social network app. As Google recommends using Content URI, you need to declare the same in your app for sharing the image’s Content URI with such social network apps. To do so follow the below two steps.
+Create file <i>provider_paths.xml</i> under <b>App</b> -> <b>res</b> -> <b>xml</b> folder and declare the path inside it where you are storing your campaign images. If you are using AppViralityUI module or storing images in external storage you can use the below code else please check out this [link](https://developer.android.com/reference/android/support/v4/content/FileProvider) to find the proper declaration for your storage directory.
+
+```java
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <external-path
+        name="external_files"
+        path="." />
+</paths>
+```
+
+Now declare the above created provider paths file in your application manifest. To do so please copy the below code in your application manifest under <i><application></application></i> element.
+
+```java
+<application android:label="@string/app_name" ...>
+    ...
+    <provider
+        android:name="android.support.v4.content.FileProvider"
+        android:authorities="${applicationId}.provider"
+        android:exported="false"
+        android:grantUriPermissions="true">
+        <meta-data
+            android:name="android.support.FILE_PROVIDER_PATHS"
+            android:resource="@xml/provider_paths" />
+    </provider>
+    ...
+</application>
 ```
 
 <H4>STEP 4 - Initializing the AppVirality SDK</H4>
