@@ -142,6 +142,7 @@ If you have multiple <b>INSTALL_REFERRER</b> receivers in your App, please go th
 ```
 
 5. For posting campaign image with the invite message on some social networks, you need to share the image with the corresponding social network app. As Google recommends using Content URI, you need to declare the same in your app for sharing the image’s Content URI with such social network apps. To do so follow the below two steps.
+
 Create file <i>provider_paths.xml</i> under <b>App</b> -> <b>res</b> -> <b>xml</b> folder and declare the path inside it where you are storing your campaign images. If you are using AppViralityUI module or storing images in external storage you can use the below code else please check out this [link](https://developer.android.com/reference/android/support/v4/content/FileProvider) to find the proper declaration for your storage directory.
 
 ```java
