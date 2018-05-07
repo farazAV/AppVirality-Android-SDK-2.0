@@ -199,7 +199,7 @@ import com.appvirality.AppVirality;
  appVirality = AppVirality.getInstance(this, config);
 ```
 
-This method returns the <i>AppVirality</i> class instance, after instantiating if it was not already instantiated.
+The above methods returns the <i>AppVirality</i> class instance, after instantiating if it was not already instantiated.
 
 <b>NOTE:</b> Use the same above method to retrieve the already initialized singleton throughout your application.
 
