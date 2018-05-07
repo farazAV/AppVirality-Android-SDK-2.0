@@ -394,13 +394,13 @@ import com.appvirality.AppVirality;
 ...
 
 AppVirality appVirality = AppVirality.getInstance(this);
-appVirality.saveConversionEvent(event, transactionValue, transactionUnit, campaignId, growthHackType, conversionEventListener);
+appVirality.saveConversionEvent(event, transactionValue, transactionUnit, extraInfo, growthHackType, conversionEventListener);
 ```
 
 a) <b>event</b> - <i>String</i>. Name of the event to be recorded.  
 b) <b>transactionValue</b> - <i>String</i>. Transaction amount for the event if applicable ; else null.  
 c) <b>transactionUnit</b> - <i>String</i>. Transaction unit for the event if applicable ; else null.  
-d) <b>campaignId</b> - <i>String</i>. Campaign Id for which to record the event, required only if multiple campaigns exists for a growth hack else can be null.  
+d) <b>extraInfo</b> - <i>JSONObject</i>. Extra information with the event which would be returned to you in the web-hook call else can be null.  
 f) <b>growthHackType</b> - <i>enum</i>. Type of growth hack for which recording event. Ex, Constants.GrowthHackType.Word_of_Mouth, Constants.GrowthHackType.Loyalty_Program, etc.  
 g) <b>conversionEventListener</b> - <i>ConversionEventListener</i>. ConversionEventListener instance if you want to get the callback after API execution ; else null.  
 
@@ -409,6 +409,15 @@ Some example custom events that you may want to track and reward users for the s
 "Finished_Level_5"  
 "Clicked_Reorder"  
 "Completed_Purchase"
+
+<b>Handling a User Logout:</b>
+If your app uses LogIn/LogOut feature, allowing multiple users to use the same device, you need to notify the same to the AppVirality SDK so that campaign and user related data should be cleared upon LogOut and hence enabling the device to be used by some other user. To know more about LogIn/LogOut use case click [here](http://dev.appvirality.com/docs/appvirality-docs/advanced-configurations/enabling-login-logout/).
+
+Invoke the following method inside your Logout method to notify SDK of the logout event:
+
+```java
+appVirality.logout();
+```
 
 <b>Proguard Configuration:</b>
 If you use proguard with your application, there are a set of rules that you will need to include to get AppVirality to work. AppVirality will not function correctly if proguard obfuscates its classes.
